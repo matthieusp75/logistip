@@ -274,25 +274,25 @@ Product.create(
   supplier_id:"6",
 )
 
-# 6 orders
+# 7 orders
 Order.create(
-  planned_delivery_date:Date.new(2022, 5, 12),
+  planned_delivery_date:Date.new(2022, 11, 25),
   total_price:"141",
-  status:"1",
+  status:"0",
   user_id:"1",
   client_id:"6",
 )
 
 Order.create(
-  planned_delivery_date:Date.new(2022, 5, 12),
+  planned_delivery_date:Date.new(2022, 11, 14),
   total_price:"56",
-  status:"1",
+  status:"0",
   user_id:"1",
   client_id:"5",
 )
 
 Order.create(
-  planned_delivery_date:Date.new(2022, 7, 14),
+  planned_delivery_date:Date.new(2022, 10, 14),
   total_price:"320",
   status:"0",
   user_id:"2",
@@ -300,7 +300,7 @@ Order.create(
 )
 
 Order.create(
-  planned_delivery_date:Date.new(2022, 7, 2),
+  planned_delivery_date:Date.new(2022, 10, 2),
   total_price:"34",
   status:"0",
   user_id:"2",
@@ -308,22 +308,30 @@ Order.create(
 )
 
 Order.create(
-  planned_delivery_date:Date.new(2022, 8, 4),
+  planned_delivery_date:Date.new(2022, 10, 4),
   total_price:"258",
-  status:"3",
+  status:"1",
   user_id:"3",
   client_id:"2",
 )
 
 Order.create(
-  planned_delivery_date:Date.new(2022, 8, 9),
+  planned_delivery_date:Date.new(2022, 7, 9),
   total_price:"120",
-  status:"3",
+  status:"2",
   user_id:"3",
   client_id:"1",
 )
 
-# 12 orerlines
+Order.create(
+  planned_delivery_date:Date.new(2022, 12, 4),
+  total_price:"118",
+  status:"0",
+  user_id:"3",
+  client_id:"1",
+)
+
+# 14 orderlines
 OrderLine.create(
   quantity:"12",
   line_total_price:"108",
@@ -406,4 +414,18 @@ OrderLine.create(
   line_total_price:"20",
   order_id:"6",
   product_id:"12",
+)
+
+OrderLine.create(
+  quantity:"12",
+  line_total_price:"108",
+  order_id:"7",
+  product_id:"1",
+)
+
+OrderLine.create(
+  quantity:"1",
+  line_total_price:"10",
+  order_id:"7",
+  product_id:"7",
 )
