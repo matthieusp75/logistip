@@ -1,2 +1,53 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner text-center">
+    <div class="carousel-item active" style="background-image: url(https://www.anthedesign.fr/wp-content/uploads/2012/12/erp1.jpg)">
+      Livrez 100% de vos clients...
+    </div>
+    <div class="carousel-item text-center" style="background-image: url(https://www.anthedesign.fr/wp-content/uploads/2012/12/erp1.jpg)">
+      ...en anticipant vos commandes fournisseurs...
+    </div>
+    <div class="carousel-item text-center" style="background-image: url(https://www.anthedesign.fr/wp-content/uploads/2012/12/erp1.jpg)">
+      ... en quelques clics !
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<section class="text-center">
+          <div class="container">
+            <div class="row mt48 mb48">
+              <div class="col-md-4 mt48 mb48">
+                <i class="fa fa-2x fa-tasks o-icon text-epsilon mb16"></i>
+                <h5>Suivez les progrès de vos équipes</h5>
+                <p class="mb0">Visualisez le progrès de votre équipe sur chaque projet ou tâche. Suivez les heures planifiées et les heures effectives et réajustez les prévisions de vos tâches en toute simplicité. </p>
+              </div>
+              <div class="col-md-4 mt48 mb48">
+                <i class="fa fa-2x fa-folder-open-o o-icon text-epsilon mb16"></i>
+                <h5>Gardez vos projets rentables</h5>
+                <p class="mb0">Ayez une vue d'ensemble du temps facturé pour surveiller toutes les ressources allouées à votre projet et voir directement les profits et les pertes.</p>
+              </div>
+              <div class="col-md-4 mt48 mb48">
+                <i class="fa fa-2x fa-credit-card o-icon text-epsilon mb16"></i>
+                <h5>Facturez vos feuilles de temps aux clients</h5>
+                <p class="mb0">Générez automatiquement des factures ponctuelles ou récurrentes basées sur les coûts et les entrées des feuilles de temps.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+<div class="d-flex justify-content-around mt-5">
+  <div class="card-category" style="background-image: url('<%= image_path "logo_home.png" %>'); background-size: cover;">
+     <%= link_to "Je veux une démo !", "/flats/new", class: "btn btn-dark" %>
+  </div>
+</div>
