@@ -1,0 +1,22 @@
+<div class="d-flex" >
+  <div class="border" style='width: 350px;'>
+    <div class="border my-2"> Produit </div>
+    <div class="border"> Commande Client </div>
+    <div class="border my-2"><strong>Commande Fournisseurs</strong></div>
+  </div>
+  <div class="border flex-grow-1" style='height: 100%'>
+    <h1 class="text-center"><%= @order.order_lines.first.supplier.name %></h1>
+    <% @order.order_lines.each do |line| %>
+      <div class="card-product my-2">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <div class="card-product-infos flex-grow-1">
+          <h4>produit: <%= line.product.title %></h4>
+          <p>quantité <strong><%= line.quantity %></strong></p>
+        </div>
+        <div class="me-3">
+          <h2>Prix = <%= line.line_total_price %></h2>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
