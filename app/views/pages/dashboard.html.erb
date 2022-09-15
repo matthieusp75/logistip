@@ -5,12 +5,27 @@
     <div class="border my-2"> Commande Fournisseurs </div>
   </div>
   <div class="border flex-grow-1" style='height: 650px'>
-    <div class="card-product my-2">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-      <div class="card-product-infos">
-        <h2>Product name</h2>
-        <p>Product description with <strong>relevant info</strong> only.</p>
-      </div>
+
+  <% @products.each do |product| %>
+    <li class="list-group-item">
+      <div class="card-product my-2">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <div class="card-product-infos">
+          <div style="font-size: 16px">
+            <%= product.title %>
+          </div>
+          <div style="font-size: 12px">
+            <%= product.description %>
+          </div>
+        </div>
+      <%= simple_form_for @order_line do |f| %>
+        <%= f.hidden_field :product_id, value: product.id %>
+        <%= f.input :quantity %>
+        <%= f.submit class: 'btn btn-primary' %>
+      <% end %>
+    </li>
+
+  <% end %>
     </div>
   </div>
 </div>
