@@ -1,0 +1,26 @@
+<div class="d-flex" >
+  <div class="border" style='width: 350px;'>
+    <div class="border my-2"> Produit </div>
+    <div class="border"> Commande Client </div>
+    <div class="border my-2"><strong>Commande Fournisseurs</strong></div>
+  </div>
+  <div class="border flex-grow-1" style='height: 100%'>
+  <% @orders.each do |order| %>
+    <% if order.client.nil? %>
+      <div class="card-product my-2">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <%= link_to order_path(order) do  %>
+        <div class="card-product-infos flex-grow-1">
+          <h4>Fournisseur: <%= order.order_lines.first.product.supplier.name %></h4>
+      <% end %>
+          <p>nombre de ligne <strong><%= order.order_lines.count %></strong></p>
+          <p>Receipt date: <%= order.planned_delivery_date %></p>
+        </div>
+        <div class="me-3">
+          <h4>Prix total = <%= order.total_price %></h4>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+  </div>
+</div>
