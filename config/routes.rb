@@ -7,5 +7,9 @@ Rails.application.routes.draw do
   end
   resources :order_lines, only: %i[create]
 
-  get 'dashboard', to: 'pages#dashboard'  
+
+  get 'dashboard', to: 'pages#dashboard'
+  patch 'orders/:id/validate', to: 'orders#validate', as: 'validate'
+
+
 end
