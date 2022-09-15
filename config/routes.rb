@@ -9,5 +9,6 @@ Rails.application.routes.draw do
 
 
   get 'dashboard', to: 'pages#dashboard'
-  
+  patch 'orders/:id/validate', to: 'orders#validate', as: 'validate'
+
 end
