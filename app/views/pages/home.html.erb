@@ -1,3 +1,5 @@
+
+<%# CAROUSEL %>
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -5,13 +7,13 @@
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
   </div>
   <div class="carousel-inner text-center">
-    <div class="carousel-item active" style="background-image: url(https://www.anthedesign.fr/wp-content/uploads/2012/12/erp1.jpg)">
+    <div class="carousel-item active" style="background-image: url(https://images.unsplash.com/photo-1616401784845-180882ba9ba8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80)">
       Livrez 100% de vos clients...
     </div>
-    <div class="carousel-item text-center" style="background-image: url(https://www.anthedesign.fr/wp-content/uploads/2012/12/erp1.jpg)">
+    <div class="carousel-item text-center" style="background-image: url(https://images.unsplash.com/photo-1622030411594-c282a63aa1bc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80)">
       ...en anticipant vos commandes fournisseurs...
     </div>
-    <div class="carousel-item text-center" style="background-image: url(https://www.anthedesign.fr/wp-content/uploads/2012/12/erp1.jpg)">
+    <div class="carousel-item text-center" style="background-image: url(https://images.unsplash.com/photo-1622127739239-1905bbaa21b8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1933&q=80)">
       ... en quelques clics !
     </div>
   </div>
@@ -25,29 +27,43 @@
   </button>
 </div>
 
-<section class="text-center">
+
+<%# # BLOC 3 BLOCS %>
+<section id="three-blocks" class="text-center">
           <div class="container">
             <div class="row mt48 mb48">
               <div class="col-md-4 mt48 mb48">
-                <i class="fa fa-2x fa-tasks o-icon text-epsilon mb16"></i>
-                <h5>Suivez les progrès de vos équipes</h5>
-                <p class="mb0">Visualisez le progrès de votre équipe sur chaque projet ou tâche. Suivez les heures planifiées et les heures effectives et réajustez les prévisions de vos tâches en toute simplicité. </p>
+                <i class="fa-solid fa-cubes logo"></i>
+                <h5>Voyez d'un seul coup d'oeil vos stocks</h5>
+                <p>Grâce à votre tableau de bord, vous pourrez visualiser les produits nécessitant un réapprovisionnement pour honorer votre portefeuille de commandes</p>
               </div>
               <div class="col-md-4 mt48 mb48">
-                <i class="fa fa-2x fa-folder-open-o o-icon text-epsilon mb16"></i>
-                <h5>Gardez vos projets rentables</h5>
-                <p class="mb0">Ayez une vue d'ensemble du temps facturé pour surveiller toutes les ressources allouées à votre projet et voir directement les profits et les pertes.</p>
+                <i class="fa-solid fa-truck-fast logo"></i>
+                <h5>Livrez davantage de commandes</h5>
+                <p>Anticiper vos commandes fournisseurs vous permettra d'avoir moins de manquants dans vos commandes clients - et boostera ainsi votre chiffre d'affaire</p>
               </div>
               <div class="col-md-4 mt48 mb48">
-                <i class="fa fa-2x fa-credit-card o-icon text-epsilon mb16"></i>
-                <h5>Facturez vos feuilles de temps aux clients</h5>
-                <p class="mb0">Générez automatiquement des factures ponctuelles ou récurrentes basées sur les coûts et les entrées des feuilles de temps.</p>
+                <i class="fa-solid fa-arrow-trend-up logo"></i>
+                <h5>Augmentez la satisfaction clients</h5>
+                <p>Générez automatiquement des alertes à vos clients si malgré vos commandes certains produits n'arrivent pas, leur offrant la possibilité de modifier leur commande. Un client alerté en vaut 2 !</p>
               </div>
             </div>
           </div>
         </section>
-<div class="d-flex justify-content-around mt-5">
-  <div class="card-category" style="background-image: url('<%= image_path "logo_home.png" %>'); background-size: cover;">
-     <%= link_to "Je veux une démo !", "/flats/new", class: "btn btn-dark" %>
+
+
+<%# BANNER %>
+<%= content_for(:navbar_class, "navbar-home") %>
+<div class="banner">
+  <div class="banner-content text-center">
+    <h1>Pilotez vos stocks et boostez votre business grâce à Logistip </h1>
+      <% if user_signed_in? %>
+        <%= link_to "Je veux une démo !", orders_path, class: "btn btn-danger"  %>
+      <% else %>
+        <%= link_to "Je veux une démo !", new_user_session_path, class: "btn btn-danger"  %>
+      <% end %>
   </div>
 </div>
+<br>
+<br>
+<br>
