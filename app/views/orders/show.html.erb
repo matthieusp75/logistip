@@ -1,4 +1,4 @@
-<div class="d-flex mb-5" >
+<div class="d-flex mb-5" style='margin-top: 80px' >
   <div class="border d-flex flex-column " style='width: 350px;'>
     <%= link_to 'Produit', dashboard_path, class: 'text-decoration-none link-page'  %>
     <%= link_to 'Commande Client', '#', class: 'text-decoration-none link-page'  %>
@@ -8,7 +8,7 @@
       <div>
         <div class="d-flex justify-content-around align-items-center">
           <h1 class="text-end"><%= @order.order_lines.first.supplier.name %></h1>
-          <%= link_to dashboard_path do %>
+          <%= link_to orders_path do %>
             <p><i class="fa-sharp fa-solid fa-arrow-rotate-left text-end fs-3"></i></p>
           <% end %>
         </div>
