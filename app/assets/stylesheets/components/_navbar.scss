@@ -1,24 +1,40 @@
-.navbar-lewagon {
+.navbar {
+  position: fixed-top;
+  width: 100%;
   justify-content: space-between;
   background: white;
+  height: 70px;
+  padding: 0px 20px;
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand {
-  width: 100%;
-  height: 100%;
+.navbar .navbar-brand img {
+  width: 40px;
 }
 
-.navbar-home {
-  position: absolute;
-  width: 100%;
-  background: transparent;
-  box-shadow: none;
-  .navbar-wagon-link {
-    color: white;
-    font-weight: bold;
-  }
+.navbar-avatar {
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+}
+
+.navbar-avatar-max {
+  height: 145px;
+  width: 145px;
+  border-radius: 50%;
+}
+
+.nav-width {
+  width: 150px;
+  text-align: center;
+}
+
+.fa-solid {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  font-size: 45px;
+  padding: 10px;
 }

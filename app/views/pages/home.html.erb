@@ -29,21 +29,21 @@
 
 
 <%# # BLOC 3 BLOCS %>
-<section id="three-blocks" class="text-center">
+<section class="text-center three-blocks">
           <div class="container">
             <div class="row mt48 mb48">
               <div class="col-md-4 mt48 mb48">
-                <i class="fa-solid fa-cubes logo"></i>
+                <i class="fa-solid fa-cubes"></i>
                 <h5>Voyez d'un seul coup d'oeil vos stocks</h5>
                 <p>Grâce à votre tableau de bord, vous pourrez visualiser les produits nécessitant un réapprovisionnement pour honorer votre portefeuille de commandes</p>
               </div>
               <div class="col-md-4 mt48 mb48">
-                <i class="fa-solid fa-truck-fast logo"></i>
+                <i class="fa-solid fa-truck-fast"></i>
                 <h5>Livrez davantage de commandes</h5>
                 <p>Anticiper vos commandes fournisseurs vous permettra d'avoir moins de manquants dans vos commandes clients - et boostera ainsi votre chiffre d'affaire</p>
               </div>
               <div class="col-md-4 mt48 mb48">
-                <i class="fa-solid fa-arrow-trend-up logo"></i>
+                <i class="fa-solid fa-arrow-trend-up"></i>
                 <h5>Augmentez la satisfaction clients</h5>
                 <p>Générez automatiquement des alertes à vos clients si malgré vos commandes certains produits n'arrivent pas, leur offrant la possibilité de modifier leur commande. Un client alerté en vaut 2 !</p>
               </div>
@@ -56,9 +56,9 @@
 <%= content_for(:navbar_class, "navbar-home") %>
 <div class="banner">
   <div class="banner-content text-center">
-    <h1>Pilotez vos stocks et boostez votre business grâce à Logistip </h1>
+    <h2>Pilotez vos stocks et boostez votre business grâce à Logistip </h2>
       <% if user_signed_in? %>
-        <%= link_to "Je veux une démo !", orders_path, class: "btn btn-danger"  %>
+        <%= link_to "Je veux une démo !", dashboard_path, class: "btn btn-danger"  %>
       <% else %>
         <%= link_to "Je veux une démo !", new_user_session_path, class: "btn btn-danger"  %>
       <% end %>
