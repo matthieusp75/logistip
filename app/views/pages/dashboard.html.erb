@@ -1,13 +1,32 @@
 <div class="d-flex" >
-  <div class="border" style='width: 350px; height: 650px'>
-    <div class=" my-2"> Produit </div>
-    <div > Commande Client </div>
-    <div class="my-2"> Commande Fournisseurs </div>
+  <div class="border d-flex flex-column " style='width: 350px;'>
+    <strong><%= link_to 'Produit', dashboard_path, class: 'text-decoration-none link-page'  %></strong>
+    <%= link_to 'Commande Client', '#', class: 'text-decoration-none link-page'  %>
+    <%= link_to 'Commande Fournisseurs', orders_path, class: 'text-decoration-none link-page'   %>
   </div>
   <div class="border flex-grow-1" style='height: 650px'>
-
-  <% @products.each do |product| %>
-      <% if product.order_lines.last.order.planned_delivery_date < Date.today  %>
+    <% @products.each do |product| %>
+      <% if product.order_lines.count > 0 %>
+        <% if product.order_lines.last.order.planned_delivery_date < Date.today %>
+          <li class="list-group-item">
+            <div class="card-product my-2">
+              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+              <div class="card-product-infos">
+                <div style="font-size: 16px">
+                  <%= product.title %>
+                </div>
+                <div style="font-size: 12px">
+                  <%= product.description %>
+                </div>
+              </div>
+            <%= simple_form_for @order_line do |f| %>
+              <%= f.hidden_field :product_id, value: product.id %>
+              <%= f.input :quantity %>
+              <%= f.submit class: 'btn btn-primary' %>
+            <% end %>
+          </li>
+        <% end %>
+      <% elsif product.order_lines.count.zero? %>
         <li class="list-group-item">
           <div class="card-product my-2">
             <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
@@ -16,7 +35,8 @@
                 <%= product.title %>
               </div>
               <div style="font-size: 12px">
-                <%= product.description %>
+                <p><%= product.description %></p>
+                <p>Quantité en stock: <%= product.quantity_in_stock %></p>
               </div>
             </div>
           <%= simple_form_for @order_line do |f| %>
@@ -25,9 +45,10 @@
             <%= f.submit class: 'btn btn-primary' %>
           <% end %>
         </li>
-        <% next product %>
       <% end %>
-  <% end %>
+    <% end %>
+    <div class="text-center mt-5">
+      <%= link_to "Commandes fournisseur", orders_path, class: 'btn btn-outline-danger'  %>
     </div>
   </div>
 </div>
