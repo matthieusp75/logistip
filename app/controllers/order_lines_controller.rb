@@ -3,7 +3,7 @@ class OrderLinesController < ApplicationController
     @order_line = OrderLine.new(order_line_params)
     @order_line.line_total_price = @order_line.product.buying_price * @order_line.quantity
     # Pseudo coder: recherche du bon order
-
+    authorize @order_line
     # Chercher le fournisseur du produit
     @supplier = @order_line.supplier
 
@@ -35,6 +35,14 @@ class OrderLinesController < ApplicationController
     else
       redirect_to root_path
     end
+  end
+
+  def update
+    @order_line = OrderLine.find(params[:id])
+    authorize @order_line
+    @order = @order_line.order
+    @order_line.update(order_line_params)
+    redirect_to order_path(@order)
   end
 
   private

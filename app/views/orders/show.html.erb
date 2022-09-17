@@ -26,12 +26,15 @@
           </div>
         <% end %>
         <div class="text-center">
-          <%= link_to validate_path(@order, order: {status:'1'}), method: :patch, class: 'text-center' do %>
-            <i class="fa-solid fa-check"></i>
+          <% if @order.status == 0%>
+            <h1>ATTENTE CONFIRMATION</h1>
+          <% elsif @order.status == 1%>
+            <h1>COMMANDE CONFIRME AU FOURNISSEUR</h1>
           <% end %>
           <span> Valider la commande </span>
-
-          <h1><%= @order.status %></h1>
+          <%= link_to validate_path(@order, order: {status: 1}), method: :patch, class: 'text-center' do %>
+            <i class="fa-solid fa-check"></i>
+          <% end %>
         </div>
       </div>
       <div class='d-flex justify-content-around mt-5'>
