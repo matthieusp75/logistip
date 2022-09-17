@@ -42,6 +42,8 @@ class OrderLinesController < ApplicationController
     authorize @order_line
     @order = @order_line.order
     @order_line.update(order_line_params)
+    @order_line.line_total_price = @order_line.quantity * @order_line.product.buying_price
+    @order_line.save
     redirect_to order_path(@order)
   end
 
