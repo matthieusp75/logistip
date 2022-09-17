@@ -429,3 +429,22 @@ OrderLine.create(
   order_id:"7",
   product_id:"7",
 )
+
+# Ajout d'un orderline et d'un order (test orderline creation sur la Bougie Fraise)
+    # Bougie fraise id : 8
+    # Bougie fraise orderline id: 15
+    # Bougie fraise order id: 8
+
+Order.create(
+  planned_delivery_date:Date.new(2022, 10, 4),
+  total_price:"10",
+  status:"0",
+  user_id:"3",
+)
+
+OrderLine.create(
+  quantity:"1",
+  line_total_price:"10",
+  order_id:"8",
+  product_id:"8",
+)
