@@ -1,13 +1,9 @@
-class OrderPolicy < ApplicationPolicy
+class OrderLinePolicy < ApplicationPolicy
   class Scope < Scope
     # NOTE: Be explicit about which records you allow access to!
-    def resolve
-      scope.all
-    end
-  end
-
-  def show?
-    true
+    # def resolve
+    #   scope.all
+    # end
   end
 
   def create?
@@ -15,10 +11,6 @@ class OrderPolicy < ApplicationPolicy
   end
 
   def update?
-    true
-  end
-
-  def validate?
     true
   end
 end
