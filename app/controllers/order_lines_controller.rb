@@ -13,10 +13,10 @@ class OrderLinesController < ApplicationController
     # @pending_orders = @supplier.orders.where("status = ? AND client_id = ? ", 0, nil)
 
     # Il nous reste un hash d'un seul element : l'order de status 0 correspondant à ce fournisseur
-      # ou un array vide si cet order n'existe pas
+    # ou un array vide si cet order n'existe pas
 
     # Si il n'existe pas, créer un order avec le bon supplier
-    if @pending_orders.length == 0
+    if @pending_orders.length.zero?
       @order = Order.new
       @order.planned_delivery_date = Date.today + @order_line.product.supplier.shipping_date_minimum_period + 2
       @order.total_price = @order_line.quantity * @order_line.product.buying_price
@@ -45,6 +45,8 @@ class OrderLinesController < ApplicationController
     authorize @order_line
     @order = @order_line.order
     @order_line.update(order_line_params)
+    @order_line.line_total_price = @order_line.quantity * @order_line.product.buying_price
+    @order_line.save
     redirect_to order_path(@order)
   end
 

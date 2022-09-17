@@ -1,12 +1,17 @@
-<div class="d-flex" >
+<div class="d-flex mb-5" >
   <div class="border" style='width: 350px;'>
-    <div class="border my-2"> Produit </div>
-    <div class="border"> Commande Client </div>
-    <div class="border my-2"><strong>Commande Fournisseurs</strong></div>
+    <div class=" my-2"> Produit </div>
+    <div> Commande Client </div>
+    <div class="my-2"><strong>Commande Fournisseurs</strong></div>
   </div>
-    <div class="border flex-grow-1">
+    <div class="border flex-grow-1 pt-4">
       <div>
-        <h1 class="text-center"><%= @order.order_lines.first.supplier.name %></h1>
+        <div class="d-flex justify-content-around align-items-center">
+          <h1 class="text-end"><%= @order.order_lines.first.supplier.name %></h1>
+          <%= link_to dashboard_path do %>
+            <p><i class="fa-sharp fa-solid fa-arrow-rotate-left text-end fs-3"></i></p>
+          <% end %>
+        </div>
         <% @order.order_lines.each do |line| %>
           <div class="card-product m-3 ">
             <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
@@ -16,7 +21,7 @@
                 <p class='me-4'>quantité <strong><%= line.quantity %></strong></p>
                 <%= simple_form_for([@order, line], html: {class: 'd-flex'}) do |f| %>
                   <%= f.input :quantity, label: false, input_html: {class: 'mt-3', style:'width:96px; height:32px'} %>
-                  <%= f.submit class: 'ms-3 mt-3', style:'width:168px; height:32px' %>
+                  <%= f.submit class: 'ms-3 mt-3 btn btn-outline-dark', style:'width:168px; height:32px' %>
                 <% end %>
               </div>
             </div>
