@@ -13,7 +13,7 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @order.update(validate_params)
     authorize @order
-    if @order.save
+    if @order.save!
       redirect_to orders_path
     else
       redirect_to order_path(@order)

@@ -10,6 +10,10 @@ class OrderPolicy < ApplicationPolicy
     true
   end
 
+  def create?
+    true
+  end
+
   def update?
     true
   end
