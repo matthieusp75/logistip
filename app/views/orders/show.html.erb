@@ -33,12 +33,12 @@
         <div class="text-center">
           <% if @order.status == 0%>
             <h1>ATTENTE CONFIRMATION</h1>
+            <span> Valider la commande </span>
+            <%= link_to validate_path(@order, order: {status: 1}), method: :patch, class: 'text-center' do %>
+              <i class="fa-solid fa-check"></i>
+            <% end %>
           <% elsif @order.status == 1%>
             <h1>COMMANDE CONFIRMEE AU FOURNISSEUR</h1>
-          <% end %>
-          <span> Valider la commande </span>
-          <%= link_to validate_path(@order, order: {status: 1}), method: :patch, class: 'text-center' do %>
-            <i class="fa-solid fa-check"></i>
           <% end %>
         </div>
       </div>
