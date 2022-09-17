@@ -18,7 +18,7 @@ class OrderLinesController < ApplicationController
     # Si il n'existe pas, créer un order avec le bon supplier
     if @pending_orders.length == 0
       @order = Order.new
-      @order.planned_delivery_date = Date.today + @order_line.product.supplier.shipping_date_minimum_period
+      @order.planned_delivery_date = Date.today + @order_line.product.supplier.shipping_date_minimum_period + 2
       @order.total_price = @order_line.quantity * @order_line.product.buying_price
       @order.status = 0
       @order.user = current_user
@@ -34,7 +34,7 @@ class OrderLinesController < ApplicationController
     # raise
     # Redirection à modifier lorsque nous aurons plus de pages
     if @order_line.save
-      redirect_to dashboard_path
+      redirect_to order_path(@order)
     else
       redirect_to dashboard_path
     end
