@@ -1,6 +1,6 @@
 class Order < ApplicationRecord
   belongs_to :user
-  belongs_to :client
+  belongs_to :client, optional: true
 
   has_many :order_lines
 

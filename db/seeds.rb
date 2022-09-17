@@ -434,16 +434,17 @@ OrderLine.create(
     # Bougie fraise id : 8
     # Bougie fraise orderline id: 15
     # Bougie fraise order id: 8
-OrderLine.create(
-  quantity:"1",
-  line_total_price:"10",
-  order_id:"8",
-  product_id:"8",
-)
 
 Order.create(
   planned_delivery_date:Date.new(2022, 10, 4),
   total_price:"10",
   status:"0",
   user_id:"3",
+)
+
+OrderLine.create(
+  quantity:"1",
+  line_total_price:"10",
+  order_id:"8",
+  product_id:"8",
 )
