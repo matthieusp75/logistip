@@ -1,12 +1,17 @@
-<div class="d-flex" >
-  <div class="border" style='width: 350px;'>
-    <div class="border my-2"> Produit </div>
-    <div class="border"> Commande Client </div>
-    <div class="border my-2"><strong>Commande Fournisseurs</strong></div>
+<div class="d-flex mb-5" >
+  <div class="border d-flex flex-column " style='width: 350px;'>
+    <%= link_to 'Produit', dashboard_path, class: 'text-decoration-none link-page'  %>
+    <%= link_to 'Commande Client', '#', class: 'text-decoration-none link-page'  %>
+    <strong><%= link_to 'Commande Fournisseurs', orders_path, class: 'text-decoration-none link-page'   %></strong>
   </div>
-    <div class="border flex-grow-1">
+    <div class="border flex-grow-1 pt-4">
       <div>
-        <h1 class="text-center"><%= @order.order_lines.first.supplier.name %></h1>
+        <div class="d-flex justify-content-around align-items-center">
+          <h1 class="text-end"><%= @order.order_lines.first.supplier.name %></h1>
+          <%= link_to dashboard_path do %>
+            <p><i class="fa-sharp fa-solid fa-arrow-rotate-left text-end fs-3"></i></p>
+          <% end %>
+        </div>
         <% @order.order_lines.each do |line| %>
           <div class="card-product m-3 ">
             <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
@@ -16,7 +21,7 @@
                 <p class='me-4'>quantité <strong><%= line.quantity %></strong></p>
                 <%= simple_form_for([@order, line], html: {class: 'd-flex'}) do |f| %>
                   <%= f.input :quantity, label: false, input_html: {class: 'mt-3', style:'width:96px; height:32px'} %>
-                  <%= f.submit class: 'ms-3 mt-3', style:'width:168px; height:32px' %>
+                  <%= f.submit class: 'ms-3 mt-3 btn btn-outline-dark', style:'width:168px; height:32px' %>
                 <% end %>
               </div>
             </div>
@@ -29,7 +34,7 @@
           <% if @order.status == 0%>
             <h1>ATTENTE CONFIRMATION</h1>
           <% elsif @order.status == 1%>
-            <h1>COMMANDE CONFIRME AU FOURNISSEUR</h1>
+            <h1>COMMANDE CONFIRMEE AU FOURNISSEUR</h1>
           <% end %>
           <span> Valider la commande </span>
           <%= link_to validate_path(@order, order: {status: 1}), method: :patch, class: 'text-center' do %>

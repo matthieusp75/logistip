@@ -1,6 +1,7 @@
 require "date"
 
-User.create(
+puts "create user"
+User.create!(
   email:"jeanfrancois@logistip.com",
   first_name:"Jean Francois",
   last_name:"Barbato",
@@ -8,7 +9,7 @@ User.create(
   password:"bonjour",
 )
 
-User.create(
+User.create!(
   email:"matthieu@logistip.com",
   first_name:"Matthieu",
   last_name:"Seaux Peters",
@@ -16,7 +17,7 @@ User.create(
   password:"bonjour",
 )
 
-User.create(
+User.create!(
   email:"stephane@logistip.com",
   first_name:"Stephane",
   last_name:"Debuiche",
@@ -24,9 +25,9 @@ User.create(
   password:"bonjour",
 )
 
-
+puts "create client"
 # 6 clients
-Client.create(
+Client.create!(
   first_name:"Marie",
   last_name:"Dumont",
   address:"14 rue Mouffetard, 75005 Paris",
@@ -230,7 +231,7 @@ Product.create(
   ean:"7658904635784",
   title:"Bougie noisette",
   description:"Une bougie aux essences de noisette",
-  quantity_in_stock:"25",
+  quantity_in_stock:"0",
   buying_price:"12",
   selling_price:"28",
   quantity_per_case:"3",
@@ -374,26 +375,26 @@ OrderLine.create(
   product_id:"6",
 )
 
-OrderLine.create(
-  quantity:"1",
-  line_total_price:"10",
-  order_id:"4",
-  product_id:"7",
-)
+# OrderLine.create(
+#   quantity:"1",
+#   line_total_price:"10",
+#   order_id:"4",
+#   product_id:"7",
+# )
 
-OrderLine.create(
-  quantity:"2",
-  line_total_price:"24",
-  order_id:"4",
-  product_id:"8",
-)
+# OrderLine.create(
+#   quantity:"2",
+#   line_total_price:"24",
+#   order_id:"4",
+#   product_id:"8",
+# )
 
-OrderLine.create(
-  quantity:"6",
-  line_total_price:"168",
-  order_id:"5",
-  product_id:"9",
-)
+# OrderLine.create(
+#   quantity:"6",
+#   line_total_price:"168",
+#   order_id:"5",
+#   product_id:"9",
+# )
 
 OrderLine.create(
   quantity:"3",
@@ -423,28 +424,28 @@ OrderLine.create(
   product_id:"1",
 )
 
-OrderLine.create(
-  quantity:"1",
-  line_total_price:"10",
-  order_id:"7",
-  product_id:"7",
-)
+# OrderLine.create(
+#   quantity:"1",
+#   line_total_price:"10",
+#   order_id:"7",
+#   product_id:"7",
+# )
 
 # Ajout d'un orderline et d'un order (test orderline creation sur la Bougie Fraise)
     # Bougie fraise id : 8
     # Bougie fraise orderline id: 15
     # Bougie fraise order id: 8
 
-Order.create(
-  planned_delivery_date:Date.new(2022, 10, 4),
-  total_price:"10",
-  status:"0",
-  user_id:"3",
-)
+# Order.create(
+#   planned_delivery_date:Date.new(2022, 10, 4),
+#   total_price:"10",
+#   status:"0",
+#   user_id:"3",
+# )
 
-OrderLine.create(
-  quantity:"1",
-  line_total_price:"10",
-  order_id:"8",
-  product_id:"8",
-)
+# OrderLine.create(
+#   quantity:"1",
+#   line_total_price:"10",
+#   order_id:"8",
+#   product_id:"8",
+# )
