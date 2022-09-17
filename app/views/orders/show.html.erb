@@ -1,8 +1,8 @@
 <div class="d-flex mb-5" >
-  <div class="border" style='width: 350px;'>
-    <div class=" my-2"> Produit </div>
-    <div> Commande Client </div>
-    <div class="my-2"><strong>Commande Fournisseurs</strong></div>
+  <div class="border d-flex flex-column " style='width: 350px;'>
+    <%= link_to 'Produit', dashboard_path, class: 'text-decoration-none link-page'  %>
+    <%= link_to 'Commande Client', '#', class: 'text-decoration-none link-page'  %>
+    <strong><%= link_to 'Commande Fournisseurs', orders_path, class: 'text-decoration-none link-page'   %></strong>
   </div>
     <div class="border flex-grow-1 pt-4">
       <div>
@@ -34,7 +34,7 @@
           <% if @order.status == 0%>
             <h1>ATTENTE CONFIRMATION</h1>
           <% elsif @order.status == 1%>
-            <h1>COMMANDE CONFIRME AU FOURNISSEUR</h1>
+            <h1>COMMANDE CONFIRMEE AU FOURNISSEUR</h1>
           <% end %>
           <span> Valider la commande </span>
           <%= link_to validate_path(@order, order: {status: 1}), method: :patch, class: 'text-center' do %>

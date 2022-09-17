@@ -26,6 +26,8 @@ class OrderLinesController < ApplicationController
     # Si il existe, alors on choisit cet order
     else
       @order = @pending_orders.first
+      @order.total_price += @order_line.line_total_price
+      @order.save
     end
 
     # Attribuer l'orderline à cet order
@@ -34,9 +36,9 @@ class OrderLinesController < ApplicationController
     # raise
     # Redirection à modifier lorsque nous aurons plus de pages
     if @order_line.save
-      redirect_to order_path(@order)
-    else
       redirect_to dashboard_path
+    else
+      redirect_to root_path
     end
   end
 
@@ -45,7 +47,10 @@ class OrderLinesController < ApplicationController
     authorize @order_line
     @order = @order_line.order
     @order_line.update(order_line_params)
+    @order.total_price -= @order_line.line_total_price
     @order_line.line_total_price = @order_line.quantity * @order_line.product.buying_price
+    @order.total_price += @order_line.line_total_price
+    @order.save
     @order_line.save
     redirect_to order_path(@order)
   end
