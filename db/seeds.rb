@@ -1,6 +1,15 @@
 require "date"
 
+# puts "destroy existing data"
+# OrderLine.destroy_all
+# Order.destroy_all
+# Product.destroy_all
+# Supplier.destroy_all
+# Client.destroy_all
+# User.destroy_all
+
 puts "create user"
+
 User.create!(
   email:"jeanfrancois@logistip.com",
   first_name:"Jean Francois",
@@ -159,7 +168,7 @@ Product.create(
   ean:"7658904635788",
   title:"Gel hydroalcoolique",
   description:"Un gel haut de gamme, pour une protection optimale",
-  quantity_in_stock:"11",
+  quantity_in_stock:"10",
   buying_price:"7",
   selling_price:"12",
   quantity_per_case:"1",
@@ -207,7 +216,7 @@ Product.create(
   ean:"7658904635782",
   title:"Bougie lavande",
   description:"Une bougie aux essences de lavande",
-  quantity_in_stock:"0",
+  quantity_in_stock:"10",
   buying_price:"6",
   selling_price:"10",
   quantity_per_case:"1",
@@ -273,6 +282,18 @@ Product.create(
   quantity_per_case:"5",
   minimum_order_quantity:"1",
   supplier_id:"6",
+)
+
+Product.create(
+  ean:"765890463#788",
+  title:"Debugger",
+  description:"Idéal pour débugger votre code",
+  quantity_in_stock:"0",
+  buying_price:"10",
+  selling_price:"14",
+  quantity_per_case:"1",
+  minimum_order_quantity:"1",
+  supplier_id:"2",
 )
 
 # 7 orders
