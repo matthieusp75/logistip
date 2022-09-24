@@ -1,10 +1,9 @@
-<div class="d-flex" style='margin-top: 80px'>
-  <div class="d-flex flex-column " style='width: 350px;'>
-    <strong><%= link_to 'Produit', dashboard_path, class: 'text-decoration-none link-page'  %></strong>
-    <%= link_to 'Commande Client', '#', class: 'text-decoration-none link-page'  %>
-    <%= link_to 'Commande Fournisseurs', orders_path, class: 'text-decoration-none link-page'   %>
-  </div>
-  <div class="container flex-grow-1">
+
+<div class='dashboard-container'>
+
+ <%= render 'shared/nav_dashboard' %>
+
+ <div class="container flex-grow-1">
     <div class="row justify-content-center">
       <% @products.each do |product| %>
         <div class="col-4">
