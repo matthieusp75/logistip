@@ -9,7 +9,9 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    @order_line = OrderLine.new
     @supplier = @order.order_lines.first.supplier
+    @products = @supplier.products.reject { |p| @order.products.include?(p) }
     authorize @order
     # Pour les badges sur les titres
     @products = Product.where(quantity_in_stock: 0).sort_by { |element| element.title }
@@ -20,12 +22,10 @@ class OrdersController < ApplicationController
   def validate
     @order = Order.find(params[:id])
     @order.update(validate_params)
+    @supplier = @order.order_lines.last.supplier
+    @order.update(planned_delivery_date: Date.today + @supplier.shipping_date_minimum_period + 2)
     authorize @order
-    if @order.save!
-      redirect_to orders_path
-    else
-      redirect_to order_path(@order)
-    end
+    redirect_to order_path(@order)
   end
 
   private

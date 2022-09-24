@@ -1,0 +1,26 @@
+<div class="card-order mx-5 my-2">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+    <div class="card-order-infos flex-grow-1 mt-2 ">
+      <div class="d-flex justify-content-between align-items-center">
+        <%= link_to order_path(order), class: 'text-decoration-none link-page' do  %>
+          <h4><%= order.order_lines.last.product.supplier.name %> <span style="font-size: 16px; font-weight: thin;">(<%= pluralize(order.order_lines.count ,'ligne')  %>)</span> </h4>
+        <% end %>
+        <% if order.status == 0%>
+          <p><i class="fa-sharp fa-solid fa-circle" style="color:orange; font-size: 12px"></i> Attente de validation</p>
+        <% elsif order.status == 1%>
+          <p style="font-size: 12px"><i class="fa-sharp fa-solid fa-circle" style="color:Green; font-size: 12px"></i> Validé au fournisseur</p>
+        <% end %>
+      </div>
+      <div class="ms-5">
+        <% order.order_lines.each do |o| %>
+          <%= o.product.title %> - <%= pluralize(o.quantity, 'commandé') %> - <%= o.line_total_price %>€</p>
+        <% end %>
+      </div>
+      <% if order.status == 1 %>
+        <h6 class="mt-5 text-center">Date de reception: <%= order.planned_delivery_date.strftime('%d/%m/%Y') %></h6>
+      <% end %>
+    </div>
+    <div class="me-3 align-self-end">
+      <h4><%= order.total_price %>€</h4>
+    </div>
+</div>
