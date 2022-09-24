@@ -1,7 +1,7 @@
 <nav class="nav nav-pills nav-fill">
   <div class="dash-button">
     <button type="button" class="btn btn-dark position-relative" id="dashbutton">
-      <a class="nav-link" aria-current="page" href="<%= dashboard_path %>" style="text-decoration:none" >
+      <a class="nav-link-dash" aria-current="page" href="<%= dashboard_path %>" style="text-decoration:none" >
         Produits
           <% if @missing_products.count.zero? %>
             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
@@ -17,7 +17,7 @@
   </div>
   <div class="dash-button">
     <button type="button" class="btn btn-dark position-relative" id="dashbutton">
-      <a class="nav-link" href="" style="text-decoration:none" >
+      <a class="nav-link-dash" href="" style="text-decoration:none" >
         Commandes Clients
         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
           0
@@ -27,7 +27,7 @@
   </div>
   <div class="dash-button">
     <button type="button" class="btn btn-dark position-relative" id="dashbutton">
-      <a class="nav-link" href="<%= orders_path %>" style="text-decoration:none" >
+      <a class="nav-link-dash" href="<%= orders_path %>" style="text-decoration:none" >
         Commandes Fournisseurs
           <% if @supplier_orders.count == 0 %>
             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">

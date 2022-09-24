@@ -2,9 +2,9 @@ class OrdersController < ApplicationController
   def index
     @orders = policy_scope(Order)
     # Pour les badges sur les titres
-    @supplier_orders = Order.all.where(status: 0, client_id: nil)
     @products = Product.where(quantity_in_stock: 0).sort_by { |element| element.title }
-    @missing_products = missing(@products)
+    @supplier_orders = Order.joins(:order_lines).where(order_lines: { product: @products}, client_id: nil, status: 0).uniq
+    @missing_products = @products.reject { |p| p.order_lines.last.order.planned_delivery_date > Date.today unless p.order_lines.blank? }
   end
 
   def show
@@ -12,9 +12,9 @@ class OrdersController < ApplicationController
     @supplier = @order.order_lines.first.supplier
     authorize @order
     # Pour les badges sur les titres
-    @supplier_orders = Order.all.where(status: 0, client_id: nil)
     @products = Product.where(quantity_in_stock: 0).sort_by { |element| element.title }
-    @missing_products = missing(@products)
+    @supplier_orders = Order.joins(:order_lines).where(order_lines: { product: @products}, client_id: nil, status: 0).uniq
+    @missing_products = @products.reject { |p| p.order_lines.last.order.planned_delivery_date > Date.today unless p.order_lines.blank? }
   end
 
   def validate
@@ -32,15 +32,5 @@ class OrdersController < ApplicationController
 
   def validate_params
     params.require(:order).permit(:status)
-  end
-
-  def missing(products)
-    products.each do |product|
-      if product.order_lines.count > 0
-        if product.order_lines.last.order.planned_delivery_date >= Date.today
-          products.delete(product)
-        end
-      end
-    end
   end
 end
