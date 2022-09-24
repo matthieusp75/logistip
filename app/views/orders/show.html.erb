@@ -2,60 +2,26 @@
   <div class="border d-flex flex-column " style='width: 350px;'>
     <%= link_to 'Produit', dashboard_path, class: 'text-decoration-none link-page'  %>
     <%= link_to 'Commande Client', '#', class: 'text-decoration-none link-page'  %>
-    <strong><%= link_to 'Commande Fournisseurs', orders_path, class: 'text-decoration-none link-page'   %></strong>
+    <strong><%= link_to 'Commande Fournisseurs', orders_path, class: 'text-decoration-none link-page' %></strong>
   </div>
     <div class="border flex-grow-1 pt-4">
       <div>
-        <div class="d-flex justify-content-around align-items-center">
-          <h1 class="text-end"><%= @order.order_lines.first.supplier.name %></h1>
-          <%= link_to orders_path do %>
-            <p><i class="fa-sharp fa-solid fa-arrow-rotate-left text-end fs-3"></i></p>
+        <div class="d-flex align-items-center">
+          <%= link_to orders_path, class: 'text-decoration-none' do %>
+            <i class="fa-solid fa-circle-chevron-left" style='font-size: 24px; color:black'></i>
           <% end %>
+          <h1 class="text-center flex-grow-1"><%= @order.order_lines.first.supplier.name %></h1>
         </div>
         <% @order.order_lines.each do |line| %>
-          <div class="card-product m-3 ">
-            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-            <div class="card-product-infos flex-grow-1">
-              <h4>produit: <%= line.product.title %></h4>
-              <div class='d-flex align-items-center'>
-                <p class='me-4'>quantité <strong><%= line.quantity %></strong></p>
-                <%= simple_form_for([@order, line], html: {class: 'd-flex'}) do |f| %>
-                  <%= f.input :quantity, label: false, input_html: {class: 'mt-3', style:'width:96px; height:32px'} %>
-                  <%= f.submit class: 'ms-3 mt-3 btn btn-outline-dark', style:'width:168px; height:32px' %>
-                <% end %>
-              </div>
-            </div>
-            <div class="me-3">
-              <h2>Prix = <%= line.line_total_price %></h2>
-            </div>
-          </div>
+          <%= render partial: 'shared/card_order_line', locals: {line: line, order: @order}  %>
         <% end %>
-        <div class="text-center">
-          <% if @order.status == 0%>
-            <h1>ATTENTE CONFIRMATION</h1>
-            <span> Valider la commande </span>
-            <%= link_to validate_path(@order, order: {status: 1}), method: :patch, class: 'text-center' do %>
-              <i class="fa-solid fa-check"></i>
-            <% end %>
-          <% elsif @order.status == 1%>
-            <h1>COMMANDE CONFIRMEE AU FOURNISSEUR</h1>
-          <% end %>
-        </div>
+        <%= render partial: 'shared/order_status', locals: {order: @order} %>
       </div>
       <div class='d-flex justify-content-around mt-5'>
         <div>
           <h1 class="text-center">Produit du même fournisseur</h1>
-          <% @supplier.products.each do |product| %>
-            <div class="card-product my-2">
-              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-              <div class="card-product-infos flex-grow-1">
-                <h4>produit: <%= product.title %></h4>
-                <p>quantité <strong><%=  %></strong></p>
-              </div>
-              <div class="me-3">
-                <h2>Prix = <%= product.buying_price %></h2>
-              </div>
-            </div>
+          <% @products.each do |product| %>
+            <%= render partial: 'shared/card_product', locals: {product: product}  %>
           <% end %>
         </div>
       </div>

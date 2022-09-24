@@ -3,43 +3,10 @@ class OrderLinesController < ApplicationController
     @order_line = OrderLine.new(order_line_params)
     @order_line.line_total_price = @order_line.product.buying_price * @order_line.quantity
     authorize @order_line
-    # Pseudo coder: recherche du bon order
-    authorize @order_line
-    # Chercher le fournisseur du produit
     @supplier = @order_line.product.supplier
-
-    # Chercher les commandes du fournisseur qui sont pending
     @pending_orders = @supplier.orders.where(status: 0, client_id: nil)
-    # @pending_orders = @supplier.orders.where("status = ? AND client_id = ? ", 0, nil)
-
-    # Il nous reste un hash d'un seul element : l'order de status 0 correspondant à ce fournisseur
-    # ou un array vide si cet order n'existe pas
-
-    # Si il n'existe pas, créer un order avec le bon supplier
-    if @pending_orders.length.zero?
-      @order = Order.new
-      @order.planned_delivery_date = Date.today + @order_line.product.supplier.shipping_date_minimum_period + 2
-      @order.total_price = @order_line.quantity * @order_line.product.buying_price
-      @order.status = 0
-      @order.user = current_user
-
-    # Si il existe, alors on choisit cet order
-    else
-      @order = @pending_orders.first
-      @order.total_price += @order_line.line_total_price
-      @order.save
-    end
-
-    # Attribuer l'orderline à cet order
-    @order_line.order = @order
-
-    # raise
-    # Redirection à modifier lorsque nous aurons plus de pages
-    if @order_line.save
-      redirect_to dashboard_path
-    else
-      redirect_to root_path
-    end
+    attribute_order(@pending_orders, @order_line)
+    redirect(@order_line)
   end
 
   def update
@@ -47,17 +14,44 @@ class OrderLinesController < ApplicationController
     authorize @order_line
     @order = @order_line.order
     @order_line.update(order_line_params)
-    @order.total_price -= @order_line.line_total_price
-    @order_line.line_total_price = @order_line.quantity * @order_line.product.buying_price
-    @order.total_price += @order_line.line_total_price
+    @order.update(total_price: @order.total_price - @order_line.line_total_price)
+    @order_line.update(line_total_price: @order_line.quantity * @order_line.product.buying_price)
+    @order.update(total_price: @order.total_price + @order_line.line_total_price)
     @order.save
-    @order_line.save
     redirect_to order_path(@order)
   end
 
   private
 
   def order_line_params
-    params.require(:order_line).permit(:quantity, :line_total_price, :order_id, :product_id)
+    params.require(:order_line).permit(:quantity, :product_id)
+  end
+
+  def create_order(order_line)
+    @order = Order.new
+    @order.planned_delivery_date = Date.today + order_line.product.supplier.shipping_date_minimum_period + 2
+    @order.total_price = order_line.line_total_price
+    @order.status = 0
+    @order.user = current_user
+    order_line.order = @order
+    @order.save
+  end
+
+  def redirect(order_line)
+    if order_line.save
+      redirect_to dashboard_path
+    else
+      redirect_to root_path
+    end
+  end
+
+  def attribute_order(orders, order_line)
+    if orders.count.positive? && orders.last.planned_delivery_date > Date.today
+      price = orders.last.total_price + order_line.line_total_price
+      order_line.order = orders.last
+      orders.last.update(total_price: price)
+    else
+      create_order(order_line)
+    end
   end
 end

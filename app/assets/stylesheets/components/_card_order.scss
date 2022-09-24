@@ -1,25 +1,25 @@
-.card-product {
+.card-order {
   overflow: hidden;
-  height: 280px;
+  height: 180px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
 }
 
-.card-product img {
+.card-order img {
   height: 100%;
   width: 120px;
   object-fit: cover;
 }
 
-.card-product h2 {
+.card-order h2 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
 }
 
-.card-product p {
+.card-order p {
   font-size: 12px;
   line-height: 1.4;
   opacity: .7;
@@ -27,17 +27,6 @@
   margin-top: 8px;
 }
 
-.card-product .card-product-infos {
+.card-order .card-order-infos {
   padding: 16px;
-}
-
-.quantity {
-  width:76px;
-  height:32px
-}
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
 }

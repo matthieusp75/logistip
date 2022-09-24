@@ -1,27 +1,16 @@
 <div class="d-flex" style='margin-top: 80px'>
-  <div class="border d-flex flex-column " style='width: 350px;'>
+  <div class=" d-flex flex-column " style='width: 350px;'>
   <%= link_to 'Produit', dashboard_path, class: 'text-decoration-none link-page'  %>
   <%= link_to 'Commande Client', '#', class: 'text-decoration-none link-page'  %>
   <strong><%= link_to 'Commande Fournisseurs', orders_path, class: 'text-decoration-none link-page'   %></strong>
   </div>
 
-  <div class="border flex-grow-1" style='height: 650px'>
-  <% @orders.each do |order| %>
-    <% if order.client.nil? %>
-      <div class="card-product my-2">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-      <%= link_to order_path(order), class: 'text-decoration-none link-page' do  %>
-        <div class="card-product-infos flex-grow-1 ">
-          <h4>Fournisseur: <%= order.order_lines.last.product.supplier.name %></h4>
+  <div class=" flex-grow-1" style='height: 650px'>
+    <h2 class="text-center">COMMANDES FOURNISSEURS</h2>
+    <% @orders.each do |order| %>
+      <% if order.client.nil? %>
+        <%= render partial:"shared/card_order", locals: {order: order} %>
       <% end %>
-          <p>nombre de ligne <strong><%= order.order_lines.count %></strong></p>
-          <p>Receipt date: <%= order.planned_delivery_date %></p>
-        </div>
-        <div class="me-3">
-          <h4>Prix total = <%= order.total_price %></h4>
-        </div>
-      </div>
     <% end %>
-  <% end %>
   </div>
 </div>
