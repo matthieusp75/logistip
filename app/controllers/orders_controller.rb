@@ -11,7 +11,7 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @order_line = OrderLine.new
     @supplier = @order.order_lines.first.supplier
-    @products = @supplier.products.reject { |p| @order.products.include?(p) }
+    @other_products = @supplier.products.reject { |p| @order.products.include?(p) }
     authorize @order
     # Pour les badges sur les titres
     @products = Product.where(quantity_in_stock: 0).sort_by { |element| element.title }
