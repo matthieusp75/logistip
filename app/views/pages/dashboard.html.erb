@@ -6,15 +6,15 @@
  <div class="container flex-grow-1">
     <div class="row justify-content-center">
       <% @products.each do |product| %>
-        <div class="col-4">
-            <% if (product.order_lines.count > 0 && product.order_lines.last.order.planned_delivery_date < Date.today) || product.order_lines.count.zero? %>
-              <div class="container">
-                <li class="list-group-item">
-                  <%= render partial: 'shared/card_product', locals: {product: product}  %>
-                </li>
-              </div>
-            <% end %>
-        </div>
+        <% if (product.order_lines.count > 0 && product.order_lines.last.order.planned_delivery_date < Date.today) || product.order_lines.count.zero? %>
+          <div class="col-4">
+            <div class="container">
+              <li class="list-group-item">
+                <%= render partial: 'shared/card_product', locals: {product: product}  %>
+              </li>
+            </div>
+          </div>
+        <% end %>
       <% end %>
 
       <% if @missing_products.count == 0 %>
