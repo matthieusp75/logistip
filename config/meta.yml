@@ -1,0 +1,5 @@
+meta_product_name: "Logistip"
+meta_title: "Logistip - Vos appros en 2 clics"
+meta_description: "Gerer vos approvissionement - vos livraison et améliorez la satisfaction de vos clients"
+meta_image: "home_slider_3.jpg" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards
