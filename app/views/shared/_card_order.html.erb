@@ -3,7 +3,7 @@
     <div class="card-order-infos flex-grow-1 mt-2 ">
       <div class="d-flex justify-content-between align-items-center">
         <%= link_to order_path(order), class: 'text-decoration-none link-page' do  %>
-          <h4><%= order.order_lines.last.product.supplier.name %> <span style="font-size: 16px; font-weight: thin;">(<%= pluralize(order.order_lines.count ,'ligne')  %>)</span> </h4>
+          <h4><%= order.products.last.supplier.name %> <span style="font-size: 16px; font-weight: thin;">(<%= pluralize(order.order_lines.count ,'ligne')  %>)</span> </h4>
         <% end %>
         <% if order.status == 0%>
           <p><i class="fa-sharp fa-solid fa-circle" style="color:orange; font-size: 12px"></i> Attente de validation</p>
@@ -13,7 +13,7 @@
       </div>
       <div class="ms-5">
         <% order.order_lines.each do |o| %>
-          <%= o.product.title %> - <%= pluralize(o.quantity, 'commandé') %> - <%= o.line_total_price %>€</p>
+          <%= o.product.title %> - <%= pluralize(o.quantity, 'colis commandé') %> (<%= o.quantity * o.product.quantity_per_case %> UVC) - <%= o.line_total_price %>€</p>
         <% end %>
       </div>
       <% if order.status == 1 %>

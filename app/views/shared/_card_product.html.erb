@@ -10,14 +10,16 @@
       <p><%= product.description %></p>
       <p>Quantité en stock: <%= product.quantity_in_stock %></p>
       <p>Quantité par colis: <%= product.quantity_per_case %></p>
-      <p>Quantité minimum de commande: <%= product.minimum_order_quantity %></p>
+      <p>Quantité minimum de commande: <%= product.minimum_order_quantity %> colis</p>
       <p><%= product.buying_price %><i class="fa-solid fa-euro-sign" style="font-size: 12px"></i>/UVC</p>
       </div>
     </div>
-    <%= simple_form_for @order_line, html: {class: 'd-flex align-items-center ms-2'} do |f| %>
+    <%= simple_form_for @order_line, html: {class: 'd-flex justify-content-center align-items-center ms-'} do |f| %>
       <%= f.hidden_field :product_id, value: product.id %>
-      <%= f.input :quantity, label: false, input_html: { class: 'mt-3 quantity'} %>
-      <%= f.submit 'Précommander', class: 'btn btn-dark mx-2 px-1', style:'width:124px; height:32px' %>
+      <%= f.submit 'Précommander', class: 'btn btn-dark mx-2 px-1', style:'width:156px; height:32px' %>
+      <%= f.input :quantity, label: false, type: 'number', input_html: {class: 'mt-3 quantity text-center',
+                                                                        placeholder: "Minimum #{product.minimum_order_quantity} colis",
+                                                                        min: product.minimum_order_quantity } %>
     <% end %>
   </div>
 </div>
