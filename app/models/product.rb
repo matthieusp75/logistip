@@ -1,5 +1,6 @@
 class Product < ApplicationRecord
   belongs_to :supplier
+  has_one_attached :photo
 
   has_many :order_lines
 

@@ -1,5 +1,6 @@
 class Supplier < ApplicationRecord
   belongs_to :user
+  has_one_attached :photo
 
   has_many :products
   has_many :order_lines, through: :products
