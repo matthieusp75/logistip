@@ -20,7 +20,7 @@
       <div class='d-flex justify-content-around mt-5'>
         <div>
         <% if @order.status == 0 %>
-          <h1 class="text-center">Produit du même fournisseur</h1>
+          <h1 class="text-center">Complétez votre commande</h1>
           <% @other_products.each do |product| %>
             <%= render partial: 'shared/card_product', locals: {product: product}  %>
           <% end %>

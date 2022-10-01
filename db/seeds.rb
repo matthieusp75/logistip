@@ -90,47 +90,53 @@ puts "create suppliers"
 
 # 6 suppliers
 supplier1 = Supplier.new(
-  name:"Parfumeo",
+  name:"Maison Chanel",
   address:"67 rue de romainville, 75019 Paris",
   email:"contact@parfumeo.com",
   telephone:"0543219876",
   shipping_date_minimum_period:"2",
   user_id:"1"
 )
-file = URI.open('https://images.unsplash.com/photo-1664309570712-564c233f112b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80')
+file = URI.open('https://www.icon-icon.com/wp-content/uploads/2021/05/053_ar-ae8i2093.jpg')
 supplier1.photo.attach(io: file, filename: 'picsupplier1.jpg', content_type: 'image/jpg')
 supplier1.save!
 
 
 supplier2 = Supplier.create(
-  name:"Bazar Denfer",
+  name:"Grossiste Orient",
   address:"11 avenue corentin cariou, 75019 Paris",
   email:"contact@bazardenfer.com",
   telephone:"0432198765",
   shipping_date_minimum_period:"4",
   user_id:"1",
 )
-file = URI.open('https://images.unsplash.com/photo-1664293272875-2cfa64e687c7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=600&q=60')
-supplier2.photo.attach(io: file, filename: 'picsupplier1.jpg', content_type: 'image/jpg')
+file = URI.open('https://media.cylex-locale.fr/companies/1295/7112/images/787140478-Grossiste-Orient-parfum-dubai_801380_large.jpg')
+supplier2.photo.attach(io: file, filename: 'picsupplier2.jpg', content_type: 'image/jpg')
 supplier2.save!
 
-# Supplier.create(
-#   name:"Tout En Un",
-#   address:"19 boulevard bourdon, 75004 Paris",
-#   email:"contact@toutenun.com",
-#   telephone:"0321987654",
-#   shipping_date_minimum_period:"3",
-#   user_id:"2",
-# )
+supplier3 = Supplier.create(
+  name:"Melina Destock",
+  address:"19 boulevard bourdon, 75004 Paris",
+  email:"contact@toutenun.com",
+  telephone:"0321987654",
+  shipping_date_minimum_period:"3",
+  user_id:"2",
+)
+file = URI.open('https://www.pagesjaunes.fr/media/agc/1e/c0/7e/00/00/1a/25/98/90/b8/626f1ec07e00001a259890b8/626f1ec07e00001a259890b9.png')
+supplier3.photo.attach(io: file, filename: 'picsupplier3.png', content_type: 'image/png')
+supplier3.save!
 
-# Supplier.create(
-#   name:"La Bonne Affaire",
-#   address:"contact@labonneaffaire.com",
-#   email:"2 avenue léonard de vinci 92400, Courbevoie",
-#   telephone:"0219876543",
-#   shipping_date_minimum_period:"5",
-#   user_id:"2",
-# )
+supplier4 = Supplier.create(
+  name:"Compagnie européenne des parfums",
+  address:"contact@labonneaffaire.com",
+  email:"2 avenue léonard de vinci 92400, Courbevoie",
+  telephone:"0219876543",
+  shipping_date_minimum_period:"5",
+  user_id:"2",
+)
+file = URI.open('https://www.compagnie-europeenne-parfums.fr/sites/default/files/logo.png')
+supplier4.photo.attach(io: file, filename: 'picsupplier4.png', content_type: 'image/png')
+supplier4.save!
 
 # Supplier.create(
 #   name:"Cdispo",
@@ -155,8 +161,8 @@ puts "create products"
 # # 12 products
 product1 = Product.create(
   ean:"7658904635785",
-  title:"Parfum vanille",
-  description:"Un délicieux parfum aux essences de vanille",
+  title:"N°5 de Chanel",
+  description:"L'eau de parfum la plus connue du monde",
   quantity_in_stock:"0",
   buying_price:"4",
   selling_price:"9",
@@ -164,239 +170,347 @@ product1 = Product.create(
   minimum_order_quantity:"12",
   supplier_id:"1",
 )
-file = URI.open('https://images.unsplash.com/photo-1662581871665-f299ba8ace07?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHw2fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=600&q=60')
+file = URI.open('https://images.unsplash.com/photo-1541643600914-78b084683601?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGVyZnVtZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60')
 product1.photo.attach(io: file, filename: 'picsupplier1.jpg', content_type: 'image/jpg')
 product1.save!
 
 product2 = Product.create(
   ean:"7658904635786",
-  title:"Parfum lavande",
-  description:"Un délicieux parfum aux essences de lavande",
-  quantity_in_stock:"0",
+  title:"Bleu de Chanel",
+  description:"La fragrance masculine par excellence",
+  quantity_in_stock:"4",
   buying_price:"6",
   selling_price:"11",
   quantity_per_case:"3",
   minimum_order_quantity:"3",
-  supplier_id:"2",
+  supplier_id:"1",
 )
-file = URI.open('https://images.unsplash.com/photo-1664411179124-4fb6413a3e1e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw4fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=600&q=60')
-product2.photo.attach(io: file, filename: 'picsupplier1.jpg', content_type: 'image/jpg')
+file = URI.open('https://images.unsplash.com/photo-1523293182086-7651a899d37f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGVyZnVtZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60')
+product2.photo.attach(io: file, filename: 'picsupplier2.jpg', content_type: 'image/jpg')
 product2.save!
 
-# Product.create(
-#   ean:"7658904635788",
-#   title:"Gel hydroalcoolique",
-#   description:"Un gel haut de gamme, pour une protection optimale",
-#   quantity_in_stock:"10",
-#   buying_price:"7",
-#   selling_price:"12",
-#   quantity_per_case:"1",
-#   minimum_order_quantity:"1",
-#   supplier_id:"2",
-# )
+product3 = Product.create(
+  ean:"7658904635788",
+  title:"Coco de Chanel",
+  description:"La jeunesse et la légèreté",
+  quantity_in_stock:"0",
+  buying_price:"7",
+  selling_price:"12",
+  quantity_per_case:"1",
+  minimum_order_quantity:"1",
+  supplier_id:"1",
+)
+file = URI.open('https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8cGVyZnVtZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60')
+product3.photo.attach(io: file, filename: 'picsupplier3.jpg', content_type: 'image/jpg')
+product3.save!
 
-# Product.create(
-#   ean:"7658904635789",
-#   title:"Parfum Fraise",
-#   description:"Un délicieux parfum aux essences de fraise",
-#   quantity_in_stock:"9",
-#   buying_price:"9",
-#   selling_price:"22",
-#   quantity_per_case:"1",
-#   minimum_order_quantity:"2",
-#   supplier_id:"3",
-# )
+product4 = Product.create(
+  ean:"7658904635538",
+  title:"Noir de Chanel",
+  description:"Pour une sensualité magnétique",
+  quantity_in_stock:"5",
+  buying_price:"7",
+  selling_price:"12",
+  quantity_per_case:"1",
+  minimum_order_quantity:"1",
+  supplier_id:"1",
+)
+file = URI.open('https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8cGVyZnVtZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60')
+product4.photo.attach(io: file, filename: 'picsupplier4.jpg', content_type: 'image/jpg')
+product4.save!
 
-# Product.create(
-#   ean:"7658904635780",
-#   title:"Tondeuse Dyson",
-#   description:"La meilleure tondeuse à gazoon du marché",
-#   quantity_in_stock:"15",
-#   buying_price:"8",
-#   selling_price:"14",
-#   quantity_per_case:"1",
-#   minimum_order_quantity:"5",
-#   supplier_id:"3",
-# )
+product5 = Product.create(
+  ean:"7658904635789",
+  title:"Miu miu",
+  description:"La femme pétillante et addictive",
+  quantity_in_stock:"0",
+  buying_price:"9",
+  selling_price:"22",
+  quantity_per_case:"1",
+  minimum_order_quantity:"2",
+  supplier_id:"2",
+)
+file = URI.open('https://images.unsplash.com/photo-1557170334-a9632e77c6e4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cGVyZnVtZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60')
+product5.photo.attach(io: file, filename: 'picsupplier5.jpg', content_type: 'image/jpg')
+product5.save!
 
-# Product.create(
-#   ean:"7658904635781",
-#   title:"Bougie vanille",
-#   description:"Une bougie aux essences de vanille",
-#   quantity_in_stock:"1",
-#   buying_price:"12",
-#   selling_price:"25",
-#   quantity_per_case:"5",
-#   minimum_order_quantity:"10",
-#   supplier_id:"4",
-# )
+product6 = Product.create(
+  ean:"7658904635780",
+  title:"Aqua di Gio",
+  description:"L'homme simple et connecté avec lui-même",
+  quantity_in_stock:"0",
+  buying_price:"8",
+  selling_price:"14",
+  quantity_per_case:"1",
+  minimum_order_quantity:"5",
+  supplier_id:"2",
+)
+file = URI.open('https://feelunique.com/cdn-cgi/image/quality=90,format=auto,metadata=none,dpr=1/img/products/5777/alternative/armani_acqua_di_gio_for_men_eau_de_toilette_spray_50ml_112716_1629709892_main.jpg')
+product6.photo.attach(io: file, filename: 'picsupplier6.jpg', content_type: 'image/jpg')
+product6.save!
 
-# Product.create(
-#   ean:"7658904635782",
-#   title:"Bougie lavande",
-#   description:"Une bougie aux essences de lavande",
-#   quantity_in_stock:"10",
-#   buying_price:"6",
-#   selling_price:"10",
-#   quantity_per_case:"1",
-#   minimum_order_quantity:"1",
-#   supplier_id:"4",
-# )
+product7 = Product.create(
+  ean:"7658904635781",
+  title:"Prada Milano",
+  description:"L'intensité de l'homme à l'état pur",
+  quantity_in_stock:"1",
+  buying_price:"12",
+  selling_price:"25",
+  quantity_per_case:"5",
+  minimum_order_quantity:"10",
+  supplier_id:"2",
+)
+file = URI.open('https://images.unsplash.com/photo-1610461888750-10bfc601b874?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fHBlcmZ1bWV8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60')
+product7.photo.attach(io: file, filename: 'picsupplier7.jpg', content_type: 'image/jpg')
+product7.save!
 
-# Product.create(
-#   ean:"7658904635783",
-#   title:"Bougie fraise",
-#   description:"Une bougie aux essences de fraise",
-#   quantity_in_stock:"0",
-#   buying_price:"4",
-#   selling_price:"12",
-#   quantity_per_case:"2",
-#   minimum_order_quantity:"2",
-#   supplier_id:"5",
-# )
+product8 = Product.create(
+  ean:"7658904635782",
+  title:"Gentleman de Givenchy",
+  description:"L'audace et la spontanéité",
+  quantity_in_stock:"10",
+  buying_price:"6",
+  selling_price:"10",
+  quantity_per_case:"1",
+  minimum_order_quantity:"1",
+  supplier_id:"2",
+)
+file = URI.open('https://images.unsplash.com/photo-1588514912908-8f5891714f8d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fHBlcmZ1bWV8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60')
+product8.photo.attach(io: file, filename: 'picsupplier8.jpg', content_type: 'image/jpg')
+product8.save!
 
-# Product.create(
-#   ean:"7658904635784",
-#   title:"Bougie noisette",
-#   description:"Une bougie aux essences de noisette",
-#   quantity_in_stock:"0",
-#   buying_price:"12",
-#   selling_price:"28",
-#   quantity_per_case:"3",
-#   minimum_order_quantity:"6",
-#   supplier_id:"5",
-# )
+product9 = Product.create(
+  ean:"7658904635783",
+  title:"The One de Dolce & Gabana",
+  description:"L'unique et inégalable",
+  quantity_in_stock:"0",
+  buying_price:"4",
+  selling_price:"12",
+  quantity_per_case:"2",
+  minimum_order_quantity:"2",
+  supplier_id:"3",
+)
+file = URI.open('https://images.unsplash.com/photo-1616949755610-8c9bbc08f138?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8NXxwTUxlMHVhSFo3MHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60')
+product9.photo.attach(io: file, filename: 'picsupplier9.jpg', content_type: 'image/jpg')
+product9.save!
 
-# Product.create(
-#   ean:"7658904635779",
-#   title:"Sapin odorant",
-#   description:"Fini les mauvaises odeurs dans votre voiture",
-#   quantity_in_stock:"4",
-#   buying_price:"15",
-#   selling_price:"30",
-#   quantity_per_case:"3",
-#   minimum_order_quantity:"3",
-#   supplier_id:"6",
-# )
+product10 = Product.create(
+  ean:"7658904635784",
+  title:"Black Opium par Yves Saint Laurent",
+  description:"Une dose d'adrénaline",
+  quantity_in_stock:"5",
+  buying_price:"12",
+  selling_price:"28",
+  quantity_per_case:"3",
+  minimum_order_quantity:"6",
+  supplier_id:"3",
+)
+file = URI.open('https://images.unsplash.com/photo-1600612253971-422e7f7faeb6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8NnxwTUxlMHVhSFo3MHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60')
+product10.photo.attach(io: file, filename: 'picsupplier10.jpg', content_type: 'image/jpg')
+product10.save!
 
-# Product.create(
-#   ean:"7658904635769",
-#   title:"Tilleul odorant",
-#   description:"Fini les mauvaises odeurs dans votre voiture",
-#   quantity_in_stock:"9",
-#   buying_price:"10",
-#   selling_price:"20",
-#   quantity_per_case:"5",
-#   minimum_order_quantity:"5",
-#   supplier_id:"6",
-# )
+product11 = Product.create(
+  ean:"7658904635779",
+  title:"Red diamond",
+  description:"Intense et sûr de lui",
+  quantity_in_stock:"4",
+  buying_price:"15",
+  selling_price:"30",
+  quantity_per_case:"3",
+  minimum_order_quantity:"3",
+  supplier_id:"3",
+)
+file = URI.open('https://images.unsplash.com/photo-1608528577891-eb055944f2e7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MTN8cE1MZTB1YUhaNzB8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60')
+product11.photo.attach(io: file, filename: 'picsupplier11.jpg', content_type: 'image/jpg')
+product11.save!
 
-# Product.create(
-#   ean:"9658904635769",
-#   title:"Huile moteur",
-#   description:"Le meilleur ami du garagiste",
-#   quantity_in_stock:"16",
-#   buying_price:"8",
-#   selling_price:"20",
-#   quantity_per_case:"5",
-#   minimum_order_quantity:"1",
-#   supplier_id:"6",
-# )
+product12 = Product.create(
+  ean:"7658904635769",
+  title:"Olympea",
+  description:"L'élixir d'Aphrodite",
+  quantity_in_stock:"0",
+  buying_price:"10",
+  selling_price:"20",
+  quantity_per_case:"5",
+  minimum_order_quantity:"5",
+  supplier_id:"3",
+)
+file = URI.open('https://images.unsplash.com/photo-1612179594004-7d90fa67cf16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MTd8cE1MZTB1YUhaNzB8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60')
+product12.photo.attach(io: file, filename: 'picsupplier12.jpg', content_type: 'image/jpg')
+product12.save!
 
-# Product.create(
-#   ean:"765890463#788",
-#   title:"Debugger",
-#   description:"Idéal pour débugger votre code",
-#   quantity_in_stock:"0",
-#   buying_price:"10",
-#   selling_price:"14",
-#   quantity_per_case:"1",
-#   minimum_order_quantity:"1",
-#   supplier_id:"2",
-# )
+product13 = Product.create(
+  ean:"9658904635769",
+  title:"Jo Malone",
+  description:"Des essences fruitées pour une jeunesse sans fin",
+  quantity_in_stock:"16",
+  buying_price:"8",
+  selling_price:"20",
+  quantity_per_case:"5",
+  minimum_order_quantity:"1",
+  supplier_id:"4",
+)
+file = URI.open('https://images.unsplash.com/photo-1519669011783-4eaa95fa1b7d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8N3xwTUxlMHVhSFo3MHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60')
+product13.photo.attach(io: file, filename: 'picsupplier13.jpg', content_type: 'image/jpg')
+product13.save!
+
+product14 = Product.create(
+  ean:"765890463#788",
+  title:"Comme une évidence par Yves Rocher",
+  description:"Simple et naturel",
+  quantity_in_stock:"0",
+  buying_price:"10",
+  selling_price:"14",
+  quantity_per_case:"1",
+  minimum_order_quantity:"1",
+  supplier_id:"4",
+)
+file = URI.open('https://images.unsplash.com/photo-1620059310606-e829e7fb1b0b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MTZ8cE1MZTB1YUhaNzB8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60')
+product14.photo.attach(io: file, filename: 'picsupplier14.jpg', content_type: 'image/jpg')
+product14.save!
+
+product15 = Product.create(
+  ean:"765890463#788",
+  title:"Boss, d'Hugo Boss",
+  description:"L'hommes, confiant et sauvage",
+  quantity_in_stock:"0",
+  buying_price:"10",
+  selling_price:"14",
+  quantity_per_case:"1",
+  minimum_order_quantity:"1",
+  supplier_id:"4",
+)
+file = URI.open('https://images.unsplash.com/photo-1596516109345-3ad1086ca0a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MTF8cE1MZTB1YUhaNzB8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60')
+product15.photo.attach(io: file, filename: 'picsupplier15.jpg', content_type: 'image/jpg')
+product15.save!
+
+
+# Produits pour faire des orderlines initiales
+
+product16 = Product.create(
+  ean:"765890463#788",
+  title:"Comme des garçons",
+  description:"Simplicité et légèreté",
+  quantity_in_stock:"0",
+  buying_price:"10",
+  selling_price:"14",
+  quantity_per_case:"1",
+  minimum_order_quantity:"1",
+  supplier_id:"2",
+)
+file = URI.open('https://images.unsplash.com/photo-1632854627971-5a609662d2aa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80')
+product16.photo.attach(io: file, filename: 'picsupplier16.jpg', content_type: 'image/jpg')
+product16.save!
+
+product17 = Product.create(
+  ean:"765890463#788",
+  title:"Oyedo",
+  description:"Le mystère fait votre charme",
+  quantity_in_stock:"0",
+  buying_price:"10",
+  selling_price:"14",
+  quantity_per_case:"1",
+  minimum_order_quantity:"1",
+  supplier_id:"3",
+)
+file = URI.open('https://images.unsplash.com/photo-1632928145408-ef47a7672964?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXxwTUxlMHVhSFo3MHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60')
+product17.photo.attach(io: file, filename: 'picsupplier17.jpg', content_type: 'image/jpg')
+product17.save!
+
+product18 = Product.create(
+  ean:"765890463#788",
+  title:"Nina Ricci",
+  description:"La fragrance intemporelle",
+  quantity_in_stock:"0",
+  buying_price:"10",
+  selling_price:"14",
+  quantity_per_case:"1",
+  minimum_order_quantity:"1",
+  supplier_id:"4",
+)
+file = URI.open('https://images.unsplash.com/photo-1588599335525-667ed6a4cdf2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1515&q=80')
+product18.photo.attach(io: file, filename: 'picsupplier18.jpg', content_type: 'image/jpg')
+product18.save!
 
 puts "create orders"
 
 # 7 orders
 Order.create(
   planned_delivery_date:Date.new(2022, 11, 25),
-  total_price:"141",
+  total_price:"10",
   status:"0",
   user_id:"1",
-  client_id:"6",
 )
 
 Order.create(
   planned_delivery_date:Date.new(2022, 11, 14),
-  total_price:"56",
+  total_price:"20",
   status:"0",
   user_id:"1",
-  client_id:"5",
 )
 
 Order.create(
-  planned_delivery_date:Date.new(2022, 10, 14),
-  total_price:"320",
+  planned_delivery_date:Date.new(2022, 10, 24),
+  total_price:"30",
   status:"0",
   user_id:"2",
-  client_id:"4",
 )
 
-Order.create(
-  planned_delivery_date:Date.new(2022, 10, 2),
-  total_price:"34",
-  status:"0",
-  user_id:"2",
-  client_id:"3",
-)
+# Order.create(
+#   planned_delivery_date:Date.new(2022, 10, 2),
+#   total_price:"34",
+#   status:"0",
+#   user_id:"2",
+#   client_id:"3",
+# )
 
-Order.create(
-  planned_delivery_date:Date.new(2022, 10, 4),
-  total_price:"258",
-  status:"1",
-  user_id:"3",
-  client_id:"2",
-)
+# Order.create(
+#   planned_delivery_date:Date.new(2022, 10, 4),
+#   total_price:"258",
+#   status:"1",
+#   user_id:"3",
+#   client_id:"2",
+# )
 
-Order.create(
-  planned_delivery_date:Date.new(2022, 7, 9),
-  total_price:"120",
-  status:"2",
-  user_id:"3",
-  client_id:"1",
-)
+# Order.create(
+#   planned_delivery_date:Date.new(2022, 7, 9),
+#   total_price:"120",
+#   status:"2",
+#   user_id:"3",
+#   client_id:"1",
+# )
 
-Order.create(
-  planned_delivery_date:Date.new(2022, 12, 4),
-  total_price:"118",
-  status:"0",
-  user_id:"3",
-  client_id:"1",
-)
+# Order.create(
+#   planned_delivery_date:Date.new(2022, 12, 4),
+#   total_price:"118",
+#   status:"0",
+#   user_id:"3",
+#   client_id:"1",
+# )
 
 puts "create orderlines"
 
 # 14 orderlines
-# OrderLine.create(
-#   quantity:"12",
-#   line_total_price:"108",
-#   order_id:"1",
-#   product_id:"1",
-# )
+OrderLine.create(
+  quantity:"1",
+  line_total_price:"10",
+  order_id:"1",
+  product_id:"16",
+)
 
-# OrderLine.create(
-#   quantity:"3",
-#   line_total_price:"33",
-#   order_id:"1",
-#   product_id:"2",
-# )
+OrderLine.create(
+  quantity:"2",
+  line_total_price:"20",
+  order_id:"2",
+  product_id:"17",
+)
 
-# OrderLine.create(
-#   quantity:"1",
-#   line_total_price:"12",
-#   order_id:"2",
-#   product_id:"3",
-# )
+OrderLine.create(
+  quantity:"3",
+  line_total_price:"30",
+  order_id:"3",
+  product_id:"18",
+)
 
 # OrderLine.create(
 #   quantity:"2",
