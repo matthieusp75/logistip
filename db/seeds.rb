@@ -127,7 +127,7 @@ supplier3.photo.attach(io: file, filename: 'picsupplier3.png', content_type: 'im
 supplier3.save!
 
 supplier4 = Supplier.create(
-  name:"Compagnie européenne des parfums",
+  name:"Compagnie des parfums",
   address:"contact@labonneaffaire.com",
   email:"2 avenue léonard de vinci 92400, Courbevoie",
   telephone:"0219876543",
