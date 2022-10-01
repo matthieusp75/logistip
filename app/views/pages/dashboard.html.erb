@@ -3,8 +3,8 @@
 
  <%= render 'shared/nav_dashboard' %>
 
- <div class="container flex-grow-1">
-    <div class="row justify-content-center">
+ <div class="container">
+    <div class="row">
       <% @products.each do |product| %>
         <% if (product.order_lines.count > 0 && product.order_lines.last.order.planned_delivery_date <= Date.today) || product.order_lines.count.zero? %>
           <div class="col-6">
