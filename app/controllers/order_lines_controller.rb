@@ -23,7 +23,7 @@ class OrderLinesController < ApplicationController
     @order_line.update(order_line_params)
     if @order_line.save
       @order.update(total_price: @order.total_price - @order_line.line_total_price)
-      @order_line.update(line_total_price: @order_line.quantity * @order_line.product.buying_price)
+      @order_line.update(line_total_price: @order_line.quantity * @order_line.product.buying_price * @order_line.product.quantity_per_case)
       @order.update(total_price: @order.total_price + @order_line.line_total_price)
       @order.save
       flash.notice = "Commande bien mise à jour"
