@@ -167,7 +167,7 @@ product1 = Product.create(
   buying_price:"4",
   selling_price:"9",
   quantity_per_case:"12",
-  minimum_order_quantity:"12",
+  minimum_order_quantity:"4",
   supplier_id:"1",
 )
 file = URI.open('https://images.unsplash.com/photo-1541643600914-78b084683601?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGVyZnVtZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60')
@@ -181,8 +181,8 @@ product2 = Product.create(
   quantity_in_stock:"4",
   buying_price:"6",
   selling_price:"11",
-  quantity_per_case:"3",
-  minimum_order_quantity:"3",
+  quantity_per_case:"36",
+  minimum_order_quantity:"10",
   supplier_id:"1",
 )
 file = URI.open('https://images.unsplash.com/photo-1523293182086-7651a899d37f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGVyZnVtZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60')
@@ -196,8 +196,8 @@ product3 = Product.create(
   quantity_in_stock:"0",
   buying_price:"7",
   selling_price:"12",
-  quantity_per_case:"1",
-  minimum_order_quantity:"1",
+  quantity_per_case:"48",
+  minimum_order_quantity:"8",
   supplier_id:"1",
 )
 file = URI.open('https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8cGVyZnVtZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60')
@@ -211,8 +211,8 @@ product4 = Product.create(
   quantity_in_stock:"5",
   buying_price:"7",
   selling_price:"12",
-  quantity_per_case:"1",
-  minimum_order_quantity:"1",
+  quantity_per_case:"36",
+  minimum_order_quantity:"16",
   supplier_id:"1",
 )
 file = URI.open('https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8cGVyZnVtZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60')
@@ -226,8 +226,8 @@ product5 = Product.create(
   quantity_in_stock:"0",
   buying_price:"9",
   selling_price:"22",
-  quantity_per_case:"1",
-  minimum_order_quantity:"2",
+  quantity_per_case:"144",
+  minimum_order_quantity:"1",
   supplier_id:"2",
 )
 file = URI.open('https://images.unsplash.com/photo-1557170334-a9632e77c6e4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cGVyZnVtZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60')
@@ -241,7 +241,7 @@ product6 = Product.create(
   quantity_in_stock:"0",
   buying_price:"8",
   selling_price:"14",
-  quantity_per_case:"1",
+  quantity_per_case:"18",
   minimum_order_quantity:"5",
   supplier_id:"2",
 )
@@ -256,8 +256,8 @@ product7 = Product.create(
   quantity_in_stock:"1",
   buying_price:"12",
   selling_price:"25",
-  quantity_per_case:"5",
-  minimum_order_quantity:"10",
+  quantity_per_case:"60",
+  minimum_order_quantity:"3",
   supplier_id:"2",
 )
 file = URI.open('https://images.unsplash.com/photo-1610461888750-10bfc601b874?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fHBlcmZ1bWV8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60')
@@ -271,8 +271,8 @@ product8 = Product.create(
   quantity_in_stock:"10",
   buying_price:"6",
   selling_price:"10",
-  quantity_per_case:"1",
-  minimum_order_quantity:"1",
+  quantity_per_case:"48",
+  minimum_order_quantity:"8",
   supplier_id:"2",
 )
 file = URI.open('https://images.unsplash.com/photo-1588514912908-8f5891714f8d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fHBlcmZ1bWV8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60')
@@ -286,7 +286,7 @@ product9 = Product.create(
   quantity_in_stock:"0",
   buying_price:"4",
   selling_price:"12",
-  quantity_per_case:"2",
+  quantity_per_case:"24",
   minimum_order_quantity:"2",
   supplier_id:"3",
 )
@@ -301,7 +301,7 @@ product10 = Product.create(
   quantity_in_stock:"5",
   buying_price:"12",
   selling_price:"28",
-  quantity_per_case:"3",
+  quantity_per_case:"36",
   minimum_order_quantity:"6",
   supplier_id:"3",
 )
@@ -316,7 +316,7 @@ product11 = Product.create(
   quantity_in_stock:"4",
   buying_price:"15",
   selling_price:"30",
-  quantity_per_case:"3",
+  quantity_per_case:"36",
   minimum_order_quantity:"3",
   supplier_id:"3",
 )
@@ -331,7 +331,7 @@ product12 = Product.create(
   quantity_in_stock:"0",
   buying_price:"10",
   selling_price:"20",
-  quantity_per_case:"5",
+  quantity_per_case:"50",
   minimum_order_quantity:"5",
   supplier_id:"3",
 )
@@ -346,8 +346,8 @@ product13 = Product.create(
   quantity_in_stock:"16",
   buying_price:"8",
   selling_price:"20",
-  quantity_per_case:"5",
-  minimum_order_quantity:"1",
+  quantity_per_case:"50",
+  minimum_order_quantity:"3",
   supplier_id:"4",
 )
 file = URI.open('https://images.unsplash.com/photo-1519669011783-4eaa95fa1b7d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8N3xwTUxlMHVhSFo3MHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60')
@@ -361,8 +361,8 @@ product14 = Product.create(
   quantity_in_stock:"0",
   buying_price:"10",
   selling_price:"14",
-  quantity_per_case:"1",
-  minimum_order_quantity:"1",
+  quantity_per_case:"48",
+  minimum_order_quantity:"6",
   supplier_id:"4",
 )
 file = URI.open('https://images.unsplash.com/photo-1620059310606-e829e7fb1b0b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MTZ8cE1MZTB1YUhaNzB8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60')
@@ -376,8 +376,8 @@ product15 = Product.create(
   quantity_in_stock:"0",
   buying_price:"10",
   selling_price:"14",
-  quantity_per_case:"1",
-  minimum_order_quantity:"1",
+  quantity_per_case:"10",
+  minimum_order_quantity:"15",
   supplier_id:"4",
 )
 file = URI.open('https://images.unsplash.com/photo-1596516109345-3ad1086ca0a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MTF8cE1MZTB1YUhaNzB8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60')
@@ -394,8 +394,8 @@ product16 = Product.create(
   quantity_in_stock:"0",
   buying_price:"10",
   selling_price:"14",
-  quantity_per_case:"1",
-  minimum_order_quantity:"1",
+  quantity_per_case:"16",
+  minimum_order_quantity:"10",
   supplier_id:"2",
 )
 file = URI.open('https://images.unsplash.com/photo-1632854627971-5a609662d2aa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80')
@@ -409,8 +409,8 @@ product17 = Product.create(
   quantity_in_stock:"0",
   buying_price:"10",
   selling_price:"14",
-  quantity_per_case:"1",
-  minimum_order_quantity:"1",
+  quantity_per_case:"15",
+  minimum_order_quantity:"10",
   supplier_id:"3",
 )
 file = URI.open('https://images.unsplash.com/photo-1632928145408-ef47a7672964?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXxwTUxlMHVhSFo3MHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60')
@@ -424,7 +424,7 @@ product18 = Product.create(
   quantity_in_stock:"0",
   buying_price:"10",
   selling_price:"14",
-  quantity_per_case:"1",
+  quantity_per_case:"100",
   minimum_order_quantity:"1",
   supplier_id:"4",
 )
