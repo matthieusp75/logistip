@@ -9,12 +9,30 @@
   <div class="carousel-inner text-center">
     <div class="carousel-item active" style="background-image: url(https://images.unsplash.com/photo-1616401784845-180882ba9ba8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80)">
       Livrez 100% de vos clients...
+      <br>
+      <% if user_signed_in? %>
+        <%= link_to "Je veux une démo !", dashboard_path, class: "btn btn-danger demo-btn btn-carousel"  %>
+      <% else %>
+        <%= link_to "Je veux une démo !", new_user_session_path, class: "btn btn-danger demo-btn btn-carousel"  %>
+      <% end %>
     </div>
     <div class="carousel-item text-center" style="background-image: url(https://images.unsplash.com/photo-1622030411594-c282a63aa1bc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80)">
       ...en anticipant vos commandes fournisseurs...
+     <br>
+      <% if user_signed_in? %>
+        <%= link_to "Je veux une démo !", dashboard_path, class: "btn btn-danger demo-btn btn-carousel"  %>
+      <% else %>
+        <%= link_to "Je veux une démo !", new_user_session_path, class: "btn btn-danger demo-btn btn-carousel"  %>
+      <% end %>
     </div>
     <div class="carousel-item text-center" style="background-image: url(https://images.unsplash.com/photo-1622127739239-1905bbaa21b8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1933&q=80)">
       ... en quelques clics !
+     <br>
+      <% if user_signed_in? %>
+        <%= link_to "Je veux une démo !", dashboard_path, class: "btn btn-danger demo-btn btn-carousel"  %>
+      <% else %>
+        <%= link_to "Je veux une démo !", new_user_session_path, class: "btn btn-danger demo-btn btn-carousel"  %>
+      <% end %>
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -45,7 +63,7 @@
               <div class="col-md-4 mt48 mb48">
                 <i class="fa-solid fa-arrow-trend-up"></i>
                 <h5>Augmentez la satisfaction clients</h5>
-                <p>Générez automatiquement des alertes à vos clients si malgré vos commandes certains produits n'arrivent pas, leur offrant la possibilité de modifier leur commande. Un client alerté en vaut 2 !</p>
+                <p>Générez automatiquement des alertes à vos clients si malgré vos commandes certains produits n'arrivent pas, leur offrant la possibilité de modifier leur commande. Un client alerté en vaut deux !</p>
               </div>
             </div>
           </div>
@@ -58,9 +76,9 @@
   <div class="banner-content text-center demo">
     <h2>Pilotez vos stocks et boostez votre business grâce à Logistip </h2>
       <% if user_signed_in? %>
-        <%= link_to "Je veux une démo !", dashboard_path, class: "btn btn-warning demo-btn"  %>
+        <%= link_to "Je veux une démo !", dashboard_path, class: "btn btn-danger demo-btn"  %>
       <% else %>
-        <%= link_to "Je veux une démo !", new_user_session_path, class: "btn btn-warning demo-btn"  %>
+        <%= link_to "Je veux une démo !", new_user_session_path, class: "btn btn-danger demo-btn"  %>
       <% end %>
   </div>
 </div>
