@@ -4,7 +4,7 @@
 
 
   <div class=" flex-grow-1" style='height: 650px'>
-    <h2 class="text-center">COMMANDES FOURNISSEURS</h2>
+    <h2 class="text-center">Vos commandes fournisseurs en cours</h2>
     <% @orders.each do |order| %>
       <% if order.client.nil? %>
         <%= render partial:"shared/card_order", locals: {order: order} %>
