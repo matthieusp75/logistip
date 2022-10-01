@@ -11,6 +11,7 @@
           <% end %>
           <h1 class="text-center flex-grow-1"><%= @order.order_lines.first.supplier.name %></h1>
         </div>
+
         <% @order.order_lines.each do |line| %>
           <%= render partial: 'shared/card_order_line', locals: {line: line, order: @order}  %>
         <% end %>
@@ -20,9 +21,13 @@
       <div class='d-flex justify-content-around mt-5'>
         <div>
         <% if @order.status == 0 %>
-          <h1 class="text-center">Complétez votre commande</h1>
-          <% @other_products.each do |product| %>
-            <%= render partial: 'shared/card_product', locals: {product: product}  %>
+          <% if @other_products.count == 0 %>
+            <h1 class="text-center" style="font-size : 36px">Vous avez commandé l'intégralité de l'assortiment de ce fournisseur</h1>
+          <% else %>
+            <h1 class="text-center">Ce fournisseur propose également:</h1>
+            <% @other_products.each do |product| %>
+              <%= render partial: 'shared/card_product', locals: {product: product}  %>
+            <% end %>
           <% end %>
         <% end %>
         </div>
