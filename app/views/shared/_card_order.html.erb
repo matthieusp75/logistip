@@ -1,26 +1,39 @@
 <div class="card-order mx-5 my-2">
   <%= cl_image_tag order.order_lines.first.product.supplier.photo.key, height: 300, width: 400, crop: :fill %>
-    <div class="card-order-infos flex-grow-1 mt-2 ">
-      <div class="d-flex justify-content-between align-items-center">
-        <%= link_to order_path(order), class: 'text-decoration-none link-page' do  %>
-          <h4><%= order.products.last.supplier.name %> <span style="font-size: 16px; font-weight: thin;">(<%= pluralize(order.order_lines.count ,'ligne')  %>)</span> </h4>
-        <% end %>
-        <% if order.status == 0%>
-          <p><i class="fa-sharp fa-solid fa-circle" style="color:orange; font-size: 12px"></i> Attente de validation</p>
-        <% elsif order.status == 1%>
-          <p style="font-size: 12px"><i class="fa-sharp fa-solid fa-circle" style="color:Green; font-size: 12px"></i> Validé au fournisseur</p>
-        <% end %>
-      </div>
-      <div class="ms-5">
-        <% order.order_lines.each do |o| %>
-          <%= o.product.title %> - <%= pluralize(o.quantity, 'colis commandé') %> (<%= o.quantity * o.product.quantity_per_case %> UVC) - <%= o.line_total_price %>€</p>
-        <% end %>
-      </div>
-      <% if order.status == 1 %>
-        <h6 class="mt-5 text-center">Date de reception: <%= order.planned_delivery_date.strftime('%d/%m/%Y') %></h6>
+  <div class="card-order-infos flex-grow-1 mt-1">
+    <div class="d-flex justify-content-between align-items-center">
+      <%= link_to order_path(order), class: 'text-decoration-none link-page' do  %>
+        <h4><%= order.products.last.supplier.name %> <span style="font-size: 16px; font-weight: thin;">(<%= pluralize(order.order_lines.count ,'ligne')  %>)</span> </h4>
+      <% end %>
+      <% if order.status == 0%>
+
+          <%= link_to validate_path(order, order: {status: 1}), method: :patch, class: 'text-center text-decoration-none', style: 'color:black; font-size: 12px;' do %>
+           <i class="fa-solid fa-cart-shopping" style='font-size: 12px; color:black;'></i><span> Valider la commande </span>
+          <% end %>
+
+
+          <%= link_to order_path(order), class: 'text-center text-decoration-none', style: 'color:black; font-size: 12px;' do %>
+            <i class="fa-solid fa-pen-to-square" style='font-size: 12px; color:black;'></i><span> Editer commande </span>
+          <% end %>
+
+          <div style='font-size: 12px; color:black;'>
+            <i class="fa-sharp fa-solid fa-circle" style="color:orange; font-size: 12px"></i><span> Attente de validation</span>
+          </div>
+
+      <% elsif order.status == 1%>
+        <p style="font-size: 12px"><i class="fa-sharp fa-solid fa-circle" style="color:Green; font-size: 12px"></i> Validé au fournisseur</p>
       <% end %>
     </div>
-    <div class="me-3 align-self-end">
-      <h4><%= order.total_price %>€</h4>
+    <div class="ms-2 mt-2">
+      <% order.order_lines.each do |o| %>
+        <%= o.product.title %> - <%= pluralize(o.quantity, 'colis commandé') %> (<%= o.quantity * o.product.quantity_per_case %> UVC) - <%= o.line_total_price %>€</p>
+      <% end %>
     </div>
+    <% if order.status == 1 %>
+      <h6 class="mt-5 text-center">Date de reception: <%= order.planned_delivery_date.strftime('%d/%m/%Y') %></h6>
+    <% end %>
+  </div>
+  <div class="me-3 align-self-end">
+    <h4><%= order.total_price %>€</h4>
+  </div>
 </div>
