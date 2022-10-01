@@ -13,7 +13,8 @@ class OrderLinesController < ApplicationController
       Order.last.delete if @pending_orders.count.zero?
       flash.alert = @order_line.errors.messages.values.join(", ")
     end
-    redirect_to current_url
+    redirect_back(fallback_location: root_path)
+
   end
 
   def update
@@ -57,9 +58,5 @@ class OrderLinesController < ApplicationController
     else
       create_order(order_line)
     end
-  end
-
-  def current_url
-    session[:return_to] = request.referer
   end
 end
