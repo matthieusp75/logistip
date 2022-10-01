@@ -55,12 +55,12 @@
 <%# BANNER %>
 <%= content_for(:navbar_class, "navbar-home") %>
 <div class="banner">
-  <div class="banner-content text-center">
+  <div class="banner-content text-center demo">
     <h2>Pilotez vos stocks et boostez votre business grâce à Logistip </h2>
       <% if user_signed_in? %>
-        <%= link_to "Je veux une démo !", dashboard_path, class: "btn btn-danger"  %>
+        <%= link_to "Je veux une démo !", dashboard_path, class: "btn btn-warning"  %>
       <% else %>
-        <%= link_to "Je veux une démo !", new_user_session_path, class: "btn btn-danger"  %>
+        <%= link_to "Je veux une démo !", new_user_session_path, class: "btn btn-warning"  %>
       <% end %>
   </div>
 </div>
