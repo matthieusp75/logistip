@@ -1,17 +1,18 @@
 .carousel-item {
   margin-top: 70px;
-  height: 512px;
+  height: 400px;
   background-size: cover;
   background-position: center;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
   font-size: 22px;
   color: white;
   font-weight: bolder;
-  text-shadow: 0 0 10px rgba(0,0,0,0.7);
+  text-shadow: 0 0 10px rgba(0,0,0,0.6);
   align-items: center;
-  justify-content: space-around;
+  justify-content:center;
+  // justify-content: space-around;
+  padding-top: 135px;
   font-size: 36px;
-  padding-top:226px;
   // margin-block-start: 0.67em;
   // margin-block-end: 0.67em;
   // margin-inline-start: 0px;
