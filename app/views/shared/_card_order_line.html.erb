@@ -1,6 +1,6 @@
 <% if order.status == 0 %>
   <div class="card-order m-3 ">
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+    <%= cl_image_tag line.product.photo.key, height: 300, width: 400, crop: :fill %>
     <div class="card-order-infos flex-grow-1">
       <h4><%= line.product.title %></h4>
       <div class='d-flex align-items-center'>
@@ -17,7 +17,7 @@
   </div>
 <% elsif order.status == 1 %>
   <div class="card-order m-3 ">
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+    <%= cl_image_tag line.product.photo.key, height: 300, width: 400, crop: :fill %>
     <div class="card-order-infos flex-grow-1">
       <h4><%= line.product.title %></h4>
       <div class='d-flex align-items-center'>

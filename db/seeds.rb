@@ -1,4 +1,5 @@
 require "date"
+require "open-uri"
 
 # puts "destroy existing data"
 # OrderLine.destroy_all
@@ -8,7 +9,7 @@ require "date"
 # Client.destroy_all
 # User.destroy_all
 
-puts "create user"
+puts "create users"
 
 User.create!(
   email:"jeanfrancois@logistip.com",
@@ -34,7 +35,8 @@ User.create!(
   password:"bonjour",
 )
 
-puts "create client"
+puts "create clients"
+
 # 6 clients
 Client.create!(
   first_name:"Marie",
@@ -84,17 +86,23 @@ Client.create(
   user_id:"3",
 )
 
+puts "create suppliers"
+
 # 6 suppliers
-Supplier.create(
+supplier1 = Supplier.new(
   name:"Parfumeo",
   address:"67 rue de romainville, 75019 Paris",
   email:"contact@parfumeo.com",
   telephone:"0543219876",
   shipping_date_minimum_period:"2",
-  user_id:"1",
+  user_id:"1"
 )
+file = URI.open('https://images.unsplash.com/photo-1664309570712-564c233f112b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80')
+supplier1.photo.attach(io: file, filename: 'picsupplier1.jpg', content_type: 'image/jpg')
+supplier1.save!
 
-Supplier.create(
+
+supplier2 = Supplier.create(
   name:"Bazar Denfer",
   address:"11 avenue corentin cariou, 75019 Paris",
   email:"contact@bazardenfer.com",
@@ -102,199 +110,212 @@ Supplier.create(
   shipping_date_minimum_period:"4",
   user_id:"1",
 )
+file = URI.open('https://images.unsplash.com/photo-1664293272875-2cfa64e687c7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=600&q=60')
+supplier2.photo.attach(io: file, filename: 'picsupplier1.jpg', content_type: 'image/jpg')
+supplier2.save!
 
-Supplier.create(
-  name:"Tout En Un",
-  address:"19 boulevard bourdon, 75004 Paris",
-  email:"contact@toutenun.com",
-  telephone:"0321987654",
-  shipping_date_minimum_period:"3",
-  user_id:"2",
-)
+# Supplier.create(
+#   name:"Tout En Un",
+#   address:"19 boulevard bourdon, 75004 Paris",
+#   email:"contact@toutenun.com",
+#   telephone:"0321987654",
+#   shipping_date_minimum_period:"3",
+#   user_id:"2",
+# )
 
-Supplier.create(
-  name:"La Bonne Affaire",
-  address:"contact@labonneaffaire.com",
-  email:"2 avenue léonard de vinci 92400, Courbevoie",
-  telephone:"0219876543",
-  shipping_date_minimum_period:"5",
-  user_id:"2",
-)
+# Supplier.create(
+#   name:"La Bonne Affaire",
+#   address:"contact@labonneaffaire.com",
+#   email:"2 avenue léonard de vinci 92400, Courbevoie",
+#   telephone:"0219876543",
+#   shipping_date_minimum_period:"5",
+#   user_id:"2",
+# )
 
-Supplier.create(
-  name:"Cdispo",
-  address:"9 rue auguste beau, 92400 Courbevoie",
-  email:"contact@cdispo.com",
-  telephone:"0101987654",
-  shipping_date_minimum_period:"1",
-  user_id:"3",
-)
+# Supplier.create(
+#   name:"Cdispo",
+#   address:"9 rue auguste beau, 92400 Courbevoie",
+#   email:"contact@cdispo.com",
+#   telephone:"0101987654",
+#   shipping_date_minimum_period:"1",
+#   user_id:"3",
+# )
 
-Supplier.create(
-  name:"Good Life",
-  address:"14 avenue edouard vaillant, 93500 Pantin",
-  email:"contact@goodlife.com",
-  telephone:"0102987654",
-  shipping_date_minimum_period:"5",
-  user_id:"3",
-)
+# Supplier.create(
+#   name:"Good Life",
+#   address:"14 avenue edouard vaillant, 93500 Pantin",
+#   email:"contact@goodlife.com",
+#   telephone:"0102987654",
+#   shipping_date_minimum_period:"5",
+#   user_id:"3",
+# )
 
-# 12 products
-Product.create(
+puts "create products"
+
+# # 12 products
+product1 = Product.create(
   ean:"7658904635785",
   title:"Parfum vanille",
   description:"Un délicieux parfum aux essences de vanille",
-  quantity_in_stock:"5",
+  quantity_in_stock:"0",
   buying_price:"4",
   selling_price:"9",
   quantity_per_case:"12",
   minimum_order_quantity:"12",
   supplier_id:"1",
 )
+file = URI.open('https://images.unsplash.com/photo-1662581871665-f299ba8ace07?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHw2fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=600&q=60')
+product1.photo.attach(io: file, filename: 'picsupplier1.jpg', content_type: 'image/jpg')
+product1.save!
 
-Product.create(
+product2 = Product.create(
   ean:"7658904635786",
   title:"Parfum lavande",
   description:"Un délicieux parfum aux essences de lavande",
-  quantity_in_stock:"7",
+  quantity_in_stock:"0",
   buying_price:"6",
   selling_price:"11",
   quantity_per_case:"3",
   minimum_order_quantity:"3",
   supplier_id:"2",
 )
+file = URI.open('https://images.unsplash.com/photo-1664411179124-4fb6413a3e1e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw4fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=600&q=60')
+product2.photo.attach(io: file, filename: 'picsupplier1.jpg', content_type: 'image/jpg')
+product2.save!
 
-Product.create(
-  ean:"7658904635788",
-  title:"Gel hydroalcoolique",
-  description:"Un gel haut de gamme, pour une protection optimale",
-  quantity_in_stock:"10",
-  buying_price:"7",
-  selling_price:"12",
-  quantity_per_case:"1",
-  minimum_order_quantity:"1",
-  supplier_id:"2",
-)
+# Product.create(
+#   ean:"7658904635788",
+#   title:"Gel hydroalcoolique",
+#   description:"Un gel haut de gamme, pour une protection optimale",
+#   quantity_in_stock:"10",
+#   buying_price:"7",
+#   selling_price:"12",
+#   quantity_per_case:"1",
+#   minimum_order_quantity:"1",
+#   supplier_id:"2",
+# )
 
-Product.create(
-  ean:"7658904635789",
-  title:"Parfum Fraise",
-  description:"Un délicieux parfum aux essences de fraise",
-  quantity_in_stock:"9",
-  buying_price:"9",
-  selling_price:"22",
-  quantity_per_case:"1",
-  minimum_order_quantity:"2",
-  supplier_id:"3",
-)
+# Product.create(
+#   ean:"7658904635789",
+#   title:"Parfum Fraise",
+#   description:"Un délicieux parfum aux essences de fraise",
+#   quantity_in_stock:"9",
+#   buying_price:"9",
+#   selling_price:"22",
+#   quantity_per_case:"1",
+#   minimum_order_quantity:"2",
+#   supplier_id:"3",
+# )
 
-Product.create(
-  ean:"7658904635780",
-  title:"Tondeuse Dyson",
-  description:"La meilleure tondeuse à gazoon du marché",
-  quantity_in_stock:"15",
-  buying_price:"8",
-  selling_price:"14",
-  quantity_per_case:"1",
-  minimum_order_quantity:"5",
-  supplier_id:"3",
-)
+# Product.create(
+#   ean:"7658904635780",
+#   title:"Tondeuse Dyson",
+#   description:"La meilleure tondeuse à gazoon du marché",
+#   quantity_in_stock:"15",
+#   buying_price:"8",
+#   selling_price:"14",
+#   quantity_per_case:"1",
+#   minimum_order_quantity:"5",
+#   supplier_id:"3",
+# )
 
-Product.create(
-  ean:"7658904635781",
-  title:"Bougie vanille",
-  description:"Une bougie aux essences de vanille",
-  quantity_in_stock:"1",
-  buying_price:"12",
-  selling_price:"25",
-  quantity_per_case:"5",
-  minimum_order_quantity:"10",
-  supplier_id:"4",
-)
+# Product.create(
+#   ean:"7658904635781",
+#   title:"Bougie vanille",
+#   description:"Une bougie aux essences de vanille",
+#   quantity_in_stock:"1",
+#   buying_price:"12",
+#   selling_price:"25",
+#   quantity_per_case:"5",
+#   minimum_order_quantity:"10",
+#   supplier_id:"4",
+# )
 
-Product.create(
-  ean:"7658904635782",
-  title:"Bougie lavande",
-  description:"Une bougie aux essences de lavande",
-  quantity_in_stock:"10",
-  buying_price:"6",
-  selling_price:"10",
-  quantity_per_case:"1",
-  minimum_order_quantity:"1",
-  supplier_id:"4",
-)
+# Product.create(
+#   ean:"7658904635782",
+#   title:"Bougie lavande",
+#   description:"Une bougie aux essences de lavande",
+#   quantity_in_stock:"10",
+#   buying_price:"6",
+#   selling_price:"10",
+#   quantity_per_case:"1",
+#   minimum_order_quantity:"1",
+#   supplier_id:"4",
+# )
 
-Product.create(
-  ean:"7658904635783",
-  title:"Bougie fraise",
-  description:"Une bougie aux essences de fraise",
-  quantity_in_stock:"0",
-  buying_price:"4",
-  selling_price:"12",
-  quantity_per_case:"2",
-  minimum_order_quantity:"2",
-  supplier_id:"5",
-)
+# Product.create(
+#   ean:"7658904635783",
+#   title:"Bougie fraise",
+#   description:"Une bougie aux essences de fraise",
+#   quantity_in_stock:"0",
+#   buying_price:"4",
+#   selling_price:"12",
+#   quantity_per_case:"2",
+#   minimum_order_quantity:"2",
+#   supplier_id:"5",
+# )
 
-Product.create(
-  ean:"7658904635784",
-  title:"Bougie noisette",
-  description:"Une bougie aux essences de noisette",
-  quantity_in_stock:"0",
-  buying_price:"12",
-  selling_price:"28",
-  quantity_per_case:"3",
-  minimum_order_quantity:"6",
-  supplier_id:"5",
-)
+# Product.create(
+#   ean:"7658904635784",
+#   title:"Bougie noisette",
+#   description:"Une bougie aux essences de noisette",
+#   quantity_in_stock:"0",
+#   buying_price:"12",
+#   selling_price:"28",
+#   quantity_per_case:"3",
+#   minimum_order_quantity:"6",
+#   supplier_id:"5",
+# )
 
-Product.create(
-  ean:"7658904635779",
-  title:"Sapin odorant",
-  description:"Fini les mauvaises odeurs dans votre voiture",
-  quantity_in_stock:"4",
-  buying_price:"15",
-  selling_price:"30",
-  quantity_per_case:"3",
-  minimum_order_quantity:"3",
-  supplier_id:"6",
-)
+# Product.create(
+#   ean:"7658904635779",
+#   title:"Sapin odorant",
+#   description:"Fini les mauvaises odeurs dans votre voiture",
+#   quantity_in_stock:"4",
+#   buying_price:"15",
+#   selling_price:"30",
+#   quantity_per_case:"3",
+#   minimum_order_quantity:"3",
+#   supplier_id:"6",
+# )
 
-Product.create(
-  ean:"7658904635769",
-  title:"Tilleul odorant",
-  description:"Fini les mauvaises odeurs dans votre voiture",
-  quantity_in_stock:"9",
-  buying_price:"10",
-  selling_price:"20",
-  quantity_per_case:"5",
-  minimum_order_quantity:"5",
-  supplier_id:"6",
-)
+# Product.create(
+#   ean:"7658904635769",
+#   title:"Tilleul odorant",
+#   description:"Fini les mauvaises odeurs dans votre voiture",
+#   quantity_in_stock:"9",
+#   buying_price:"10",
+#   selling_price:"20",
+#   quantity_per_case:"5",
+#   minimum_order_quantity:"5",
+#   supplier_id:"6",
+# )
 
-Product.create(
-  ean:"9658904635769",
-  title:"Huile moteur",
-  description:"Le meilleur ami du garagiste",
-  quantity_in_stock:"16",
-  buying_price:"8",
-  selling_price:"20",
-  quantity_per_case:"5",
-  minimum_order_quantity:"1",
-  supplier_id:"6",
-)
+# Product.create(
+#   ean:"9658904635769",
+#   title:"Huile moteur",
+#   description:"Le meilleur ami du garagiste",
+#   quantity_in_stock:"16",
+#   buying_price:"8",
+#   selling_price:"20",
+#   quantity_per_case:"5",
+#   minimum_order_quantity:"1",
+#   supplier_id:"6",
+# )
 
-Product.create(
-  ean:"765890463#788",
-  title:"Debugger",
-  description:"Idéal pour débugger votre code",
-  quantity_in_stock:"0",
-  buying_price:"10",
-  selling_price:"14",
-  quantity_per_case:"1",
-  minimum_order_quantity:"1",
-  supplier_id:"2",
-)
+# Product.create(
+#   ean:"765890463#788",
+#   title:"Debugger",
+#   description:"Idéal pour débugger votre code",
+#   quantity_in_stock:"0",
+#   buying_price:"10",
+#   selling_price:"14",
+#   quantity_per_case:"1",
+#   minimum_order_quantity:"1",
+#   supplier_id:"2",
+# )
+
+puts "create orders"
 
 # 7 orders
 Order.create(
@@ -353,48 +374,50 @@ Order.create(
   client_id:"1",
 )
 
+puts "create orderlines"
+
 # 14 orderlines
-OrderLine.create(
-  quantity:"12",
-  line_total_price:"108",
-  order_id:"1",
-  product_id:"1",
-)
+# OrderLine.create(
+#   quantity:"12",
+#   line_total_price:"108",
+#   order_id:"1",
+#   product_id:"1",
+# )
 
-OrderLine.create(
-  quantity:"3",
-  line_total_price:"33",
-  order_id:"1",
-  product_id:"2",
-)
+# OrderLine.create(
+#   quantity:"3",
+#   line_total_price:"33",
+#   order_id:"1",
+#   product_id:"2",
+# )
 
-OrderLine.create(
-  quantity:"1",
-  line_total_price:"12",
-  order_id:"2",
-  product_id:"3",
-)
+# OrderLine.create(
+#   quantity:"1",
+#   line_total_price:"12",
+#   order_id:"2",
+#   product_id:"3",
+# )
 
-OrderLine.create(
-  quantity:"2",
-  line_total_price:"44",
-  order_id:"2",
-  product_id:"4",
-)
+# OrderLine.create(
+#   quantity:"2",
+#   line_total_price:"44",
+#   order_id:"2",
+#   product_id:"4",
+# )
 
-OrderLine.create(
-  quantity:"5",
-  line_total_price:"70",
-  order_id:"3",
-  product_id:"5",
-)
+# OrderLine.create(
+#   quantity:"5",
+#   line_total_price:"70",
+#   order_id:"3",
+#   product_id:"5",
+# )
 
-OrderLine.create(
-  quantity:"10",
-  line_total_price:"250",
-  order_id:"3",
-  product_id:"6",
-)
+# OrderLine.create(
+#   quantity:"10",
+#   line_total_price:"250",
+#   order_id:"3",
+#   product_id:"6",
+# )
 
 # OrderLine.create(
 #   quantity:"1",
@@ -417,33 +440,33 @@ OrderLine.create(
 #   product_id:"9",
 # )
 
-OrderLine.create(
-  quantity:"3",
-  line_total_price:"90",
-  order_id:"5",
-  product_id:"10",
-)
+# OrderLine.create(
+#   quantity:"3",
+#   line_total_price:"90",
+#   order_id:"5",
+#   product_id:"10",
+# )
 
-OrderLine.create(
-  quantity:"5",
-  line_total_price:"100",
-  order_id:"6",
-  product_id:"11",
-)
+# OrderLine.create(
+#   quantity:"5",
+#   line_total_price:"100",
+#   order_id:"6",
+#   product_id:"11",
+# )
 
-OrderLine.create(
-  quantity:"1",
-  line_total_price:"20",
-  order_id:"6",
-  product_id:"12",
-)
+# OrderLine.create(
+#   quantity:"1",
+#   line_total_price:"20",
+#   order_id:"6",
+#   product_id:"12",
+# )
 
-OrderLine.create(
-  quantity:"12",
-  line_total_price:"108",
-  order_id:"7",
-  product_id:"1",
-)
+# OrderLine.create(
+#   quantity:"12",
+#   line_total_price:"108",
+#   order_id:"7",
+#   product_id:"1",
+# )
 
 # OrderLine.create(
 #   quantity:"1",
@@ -470,3 +493,5 @@ OrderLine.create(
 #   order_id:"8",
 #   product_id:"8",
 # )
+
+puts "Almost done"
