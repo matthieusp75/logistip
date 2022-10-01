@@ -2,7 +2,7 @@
   <%= cl_image_tag order.order_lines.first.product.supplier.photo.key, height: 300, width: 400, crop: :fill %>
   <div class="card-order-infos flex-grow-1 mt-1">
     <div class="d-flex justify-content-between align-items-center">
-      <%= link_to order_path(order), class: 'text-decoration-none link-page' do  %>
+      <%= link_to order_path(order), class: 'text-decoration-none link-page', style: "width:300px;" do  %>
         <h4><%= order.products.last.supplier.name %> <span style="font-size: 16px; font-weight: thin;">(<%= pluralize(order.order_lines.count ,'ligne')  %>)</span> </h4>
       <% end %>
       <% if order.status == 0%>
