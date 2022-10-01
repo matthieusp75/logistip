@@ -1,6 +1,6 @@
 <% if order.status == 0 %>
   <div class="card-order m-3 ">
-    <%= cl_image_tag product.photo.key, height: 300, width: 400, crop: :fill %>
+    <%= cl_image_tag line.product.photo.key, height: 300, width: 400, crop: :fill %>
     <div class="card-order-infos flex-grow-1">
       <h4><%= line.product.title %></h4>
       <div class='d-flex align-items-center'>
