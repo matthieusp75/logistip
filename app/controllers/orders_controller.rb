@@ -25,7 +25,7 @@ class OrdersController < ApplicationController
     @supplier = @order.order_lines.last.supplier
     @order.update(planned_delivery_date: Date.today + @supplier.shipping_date_minimum_period + 2)
     authorize @order
-    redirect_to order_path(@order)
+    redirect_to orders_path
   end
 
   private
