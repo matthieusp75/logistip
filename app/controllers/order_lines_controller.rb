@@ -28,7 +28,7 @@ class OrderLinesController < ApplicationController
       @order.save
       flash.notice = "Commande bien mise à jour"
     else
-      flash.alert = "Mise à jour impossible"
+      flash.alert = "Mise à jour impossible ! La commande doit être supérieure au minimum de commande"
     end
     redirect_to order_path(@order)
   end
