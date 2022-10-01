@@ -2,7 +2,7 @@
   <div class="dash-button">
     <button type="button" class="btn btn-dark position-relative" id="dashbutton">
       <a class="nav-link-dash" aria-current="page" href="<%= dashboard_path %>" style="text-decoration:none" >
-        Produits
+        Produits en rupture
           <% if @missing_products.count.zero? %>
             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
               <%= @missing_products.count %>
