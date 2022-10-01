@@ -2,8 +2,8 @@
   <% if order.status == 0%>
   <div class="d-flex justify-content-around align-items-center">
     <p><i class="fa-sharp fa-solid fa-circle" style="color:orange; font-size: 20px"></i> En attente de validation</p>
-    <%= link_to validate_path(order, order: {status: 1}), method: :patch, class: 'text-center text-decoration-none', style: 'color:black' do %>
-       <span> Valider la commande </span><i class="fa-solid fa-check" style='font-size: 20px; color:black;'></i>
+    <%= link_to validate_path(order, order: {status: 1}), method: :patch, class: 'btn btn-outline-dark text-center text-decoration-none' do %>
+       <span> Valider la commande </span> <i class="fa-solid fa-cart-shopping" style='font-size: 20px'></i>
     <% end %>
   </div>
   <% elsif order.status == 1%>
