@@ -1,3 +1,4 @@
+
 .carousel-item {
   margin-top: 70px;
   height: 400px;
@@ -6,9 +7,7 @@
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
   font-size: 40px;
   font-weight: bolder;
-  text-shadow: 1px 0 black, -1px 0 black, 0 1px black, 0 -1px black,
-             1px 1px black, -1px -1px black, 1px -1px black, -1px 1px black;
-  opacity: 0.9;
+  text-shadow: 1px 1px 2px black;
   color: white;
   align-items: center;
   justify-content: space-around;
@@ -26,6 +25,7 @@
 }
 
 .btn-carousel {
+  position:relative;
   color: black;
   font-size: 40px;
   font-weight: bolder;

@@ -6,32 +6,32 @@
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
   </div>
-  <div class="carousel-inner text-center">
-    <div class="carousel-item active" style="background-image: url(https://images.unsplash.com/photo-1616401784845-180882ba9ba8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80)">
+  <div class="carousel-inner text-center" style="background: linear-gradient(to right, #040404, #000000, #656565)">
+    <div class="carousel-item active" style="background-image: linear-gradient(rgba(90,90,90,0.45), rgba(90,90,90,0.45)), url(https://images.unsplash.com/photo-1616401784845-180882ba9ba8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80)">
       Livrez 100% de vos clients...
       <br>
       <% if user_signed_in? %>
-        <%= link_to "Je traite mes ruptures de stock!", dashboard_path, class: "btn btn-danger demo-btn btn-carousel"  %>
+        <%= link_to "Je traite mes ruptures de stock !", dashboard_path, class: "btn btn-danger demo-btn btn-carousel"  %>
       <% else %>
-        <%= link_to "Je traite mes ruptures de stock!", new_user_session_path, class: "btn btn-danger demo-btn btn-carousel"  %>
+        <%= link_to "Je traite mes ruptures de stock !", new_user_session_path, class: "btn btn-danger demo-btn btn-carousel"  %>
       <% end %>
     </div>
-    <div class="carousel-item text-center" style="background-image: url(https://images.unsplash.com/photo-1622030411594-c282a63aa1bc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80)">
+    <div class="carousel-item text-center" style="background-image: linear-gradient(rgba(90,90,90,0.45), rgba(90,90,90,0.45)), url(https://images.unsplash.com/photo-1622030411594-c282a63aa1bc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80)">
       ...en anticipant vos commandes fournisseurs...
      <br>
       <% if user_signed_in? %>
-        <%= link_to "Je traite mes ruptures de stock!", dashboard_path, class: "btn btn-danger demo-btn btn-carousel"  %>
+        <%= link_to "Je traite mes ruptures de stock !", dashboard_path, class: "btn btn-danger demo-btn btn-carousel"  %>
       <% else %>
-        <%= link_to "Je traite mes ruptures de stock!", new_user_session_path, class: "btn btn-danger demo-btn btn-carousel"  %>
+        <%= link_to "Je traite mes ruptures de stock !", new_user_session_path, class: "btn btn-danger demo-btn btn-carousel"  %>
       <% end %>
     </div>
-    <div class="carousel-item text-center" style="background-image: url(https://images.unsplash.com/photo-1622127739239-1905bbaa21b8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1933&q=80)">
+    <div class="carousel-item text-center" style="background-image: linear-gradient(rgba(90,90,90,0.45), rgba(90,90,90,0.45)), url(https://images.unsplash.com/photo-1622127739239-1905bbaa21b8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1933&q=80)">
       ... en quelques clics !
      <br>
       <% if user_signed_in? %>
-        <%= link_to "Je traite mes ruptures de stock!", dashboard_path, class: "btn btn-danger demo-btn btn-carousel"  %>
+        <%= link_to "Je traite mes ruptures de stock !", dashboard_path, class: "btn btn-danger demo-btn btn-carousel"  %>
       <% else %>
-        <%= link_to "Je traite mes ruptures de stock!", new_user_session_path, class: "btn btn-danger demo-btn btn-carousel"  %>
+        <%= link_to "Je traite mes ruptures de stock !", new_user_session_path, class: "btn btn-danger demo-btn btn-carousel"  %>
       <% end %>
     </div>
   </div>
@@ -76,12 +76,9 @@
   <div class="banner-content text-center demo">
     <h2>Pilotez vos stocks et boostez votre business grâce à Logistip </h2>
       <% if user_signed_in? %>
-        <%= link_to "Je traite mes ruptures de stock!", dashboard_path, class: "btn btn-danger demo-btn"  %>
+        <%= link_to "Je traite mes ruptures de stock !", dashboard_path, class: "btn btn-danger demo-btn"  %>
       <% else %>
-        <%= link_to "Je traite mes ruptures de stock!", new_user_session_path, class: "btn btn-danger demo-btn"  %>
+        <%= link_to "Je traite mes ruptures de stock !", new_user_session_path, class: "btn btn-danger demo-btn"  %>
       <% end %>
   </div>
 </div>
-<br>
-<br>
-<br>
