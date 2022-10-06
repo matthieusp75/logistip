@@ -11,6 +11,7 @@
   height: 100%;
   width: 215px;
   object-fit: cover;
+  position: relative;
 }
 
 .card-product h2 {
@@ -33,11 +34,38 @@
 
 .quantity {
   width:156px;
-  height:32px
+  height:32px;
 }
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
+    appearance: none;
     margin: 0;
+}
+
+.ribbon {
+  -webkit-transform: rotate(+45deg);
+    //  -moz-transform: rotate(-45deg);
+    //   -ms-transform: rotate(-45deg);
+    //    -o-transform: rotate(-45deg);
+          transform: rotate(+225deg);
+    border: 25px solid transparent;
+    border-top: 25px solid $max-yellow;
+    position: absolute;
+    top:28px;
+    right: -47px;
+    left: 62px;
+    padding: 0 10px;
+    width: 200px;
+    color: black;
+    size: 20px;
+    align-items: center;
+}
+.ribbon .txt {
+    position: absolute;
+    top: -25px;
+    left: 33px;
+    transform: rotate(+180deg);
+    font-weight: bolder;
 }
