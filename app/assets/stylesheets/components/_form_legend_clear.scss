@@ -8,3 +8,9 @@
 legend ~ div.form-check:first-of-type {
   clear: left;
 }
+
+form abbr[title] {
+  display: none !important;;
+  border-bottom: none !important;
+  text-decoration: none !important;
+}

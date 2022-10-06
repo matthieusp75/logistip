@@ -15,12 +15,14 @@
       </div>
     </div>
     <%# <div class='me-1'> %>
-    <%= simple_form_for @order_line, html: {class: 'd-flex justify-content-center align-items-center me-5'} do |f| %>
+    <%= simple_form_for @order_line, html: {class: 'd-flex justify-content-center me-5'} do |f| %>
       <%= f.hidden_field :product_id, value: product.id %>
-      <%= f.submit 'Précommander', class: 'btn btn-dark mx-2 p-1 ', style:'width:156px; height:32px' %>
-      <%= f.input :quantity, label: false, type: 'number', input_html: {class: 'mt-3 quantity text-center',
-                                                                        placeholder: "Minimum #{product.minimum_order_quantity} colis",
-                                                                        min: product.minimum_order_quantity } %>
+
+        <%= f.input :quantity, label: false, type: 'number', input_html: {class: 'quantity text-center',
+                                                                          placeholder: "Minimum #{product.minimum_order_quantity} colis",
+                                                                          min: product.minimum_order_quantity } %>
+
+      <%= f.submit 'Précommander', class: 'btn btn-dark mx-2 p-1 align-self-center', style:'width:156px; height:32px' %>
     <% end %>
     <%# </div> %>
   </div>

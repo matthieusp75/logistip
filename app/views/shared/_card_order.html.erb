@@ -1,39 +1,45 @@
-<div class="card-order mx-5 my-2">
-  <%= cl_image_tag order.order_lines.first.product.supplier.photo.key, height: 300, width: 400, crop: :fill %>
-  <div class="card-order-infos flex-grow-1 mt-1">
-    <div class="d-flex justify-content-between align-items-center">
-      <%= link_to order_path(order), class: 'text-decoration-none link-page', style: "width:350px;" do  %>
-        <h4><%= order.products.last.supplier.name %> <span style="font-size: 16px; font-weight: thin;">(<%= pluralize(order.order_lines.count ,'ligne')  %>)</span> </h4>
-      <% end %>
-      <% if order.status == 0%>
-
-          <%= link_to validate_path(order, order: {status: 1}), method: :patch, class: 'text-center text-decoration-none', style: 'color:black; font-size: 12px;' do %>
-           <i class="fa-solid fa-cart-shopping" style='font-size: 12px; color:black;'></i><span> Valider la commande </span>
+<div class="card-order mx-5 my-2 position-relative">
+  <%= cl_image_tag order.order_lines.first.product.supplier.photo.key, width: 400, crop: :fill %>
+    <div class="card-order-infos  flex-grow-1 position-relative">
+      <div>
+        <%= link_to order_path(order), class: 'text-decoration-none link-page', style: "width:350px;" do  %>
+          <h4><%= order.products.last.supplier.name %> <span style="font-size: 16px; font-weight: thin;">(<%= pluralize(order.order_lines.count ,'ligne')  %>)</span> </h4>
+        <% end %>
+        <div class="ms-2 mt-2 flex-shrink-1 mb-5">
+          <% order.order_lines.each do |o| %>
+            <%= o.product.title %> - <%= pluralize(o.quantity, 'colis commandé') %> (<%= o.quantity * o.product.quantity_per_case %> UVC) - <%= o.line_total_price %>€</p>
           <% end %>
-
-
-          <%= link_to order_path(order), class: 'text-center text-decoration-none', style: 'color:black; font-size: 12px;' do %>
-            <i class="fa-solid fa-pen-to-square" style='font-size: 12px; color:black;'></i><span> Editer commande </span>
-          <% end %>
-
-          <div style='font-size: 12px; color:black;'>
-            <i class="fa-sharp fa-solid fa-circle" style="color:orange; font-size: 12px"></i><span> En attente de validation</span>
-          </div>
-
-      <% elsif order.status == 1%>
-        <p style="font-size: 12px"><i class="fa-sharp fa-solid fa-circle" style="color:Green; font-size: 12px"></i> Validé au fournisseur</p>
-      <% end %>
-    </div>
-    <div class="ms-2 mt-2">
-      <% order.order_lines.each do |o| %>
-        <%= o.product.title %> - <%= pluralize(o.quantity, 'colis commandé') %> (<%= o.quantity * o.product.quantity_per_case %> UVC) - <%= o.line_total_price %>€</p>
-      <% end %>
-    </div>
-    <% if order.status == 1 %>
-      <h6 class="mt-5 text-center">Date de reception: <%= order.planned_delivery_date.strftime('%d/%m/%Y') %></h6>
-    <% end %>
+        </div>
+        <% if order.status == 1 %>
+          <h6 class="mt-5 text-center position-absolute bottom-0 start-50 translate-middle-x">Date de reception: <%= order.planned_delivery_date.strftime('%d/%m/%Y') %></h6>
+        <% end %>
+      </div>
   </div>
-  <div class="me-3 align-self-end">
-    <h4><%= order.total_price %>€</h4>
-  </div>
+      <div class="align-self-baseline me-4">
+        <% if order.status == 0%>
+
+            <div style='font-size: 12px; color:black;'>
+              <i class="fa-sharp fa-solid fa-circle" style="color:orange; font-size: 12px"></i><span> En attente de validation</span>
+            </div>
+
+        <div>
+            <%= link_to order_path(order), class: 'text-center text-decoration-none', style: 'color:black; font-size: 12px;' do %>
+              <i class="fa-solid fa-pen-to-square" style='font-size: 12px; color:black;'></i><span> Editer commande </span>
+            <% end %>
+        </div>
+
+
+        <% elsif order.status == 1%>
+          <p style="font-size: 12px" class="align-self-end"><i class="fa-sharp fa-solid fa-circle" style="color:Green; font-size: 12px"></i> Validé au fournisseur</p>
+        <% end %>
+      </div>
+      <% if order.status == 0 %>
+        <div class="position-absolute bottom-0 end-0 me-4 mb-1 btn btn-success">
+            <%= link_to validate_path(order, order: {status: 1}), method: :patch, class: 'text-center text-decoration-none', style: 'color:black; font-size: 12px;' do %>
+              <p style="font-size:16px;"><i class="fa-solid fa-cart-shopping" style='font-size: 16px'></i><span> Valider la commande <strong><%= order.total_price %>€</strong></span></p>
+            <% end %>
+        </div>
+      <% else %>
+        <h4 class="me-3 align-self-end text-end position-absolute bottom-0 end-0"><%= order.total_price %>€</h4>
+      <% end %>
 </div>
