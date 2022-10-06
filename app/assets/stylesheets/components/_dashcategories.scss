@@ -1,3 +1,14 @@
+button{
+  border: none;
+}
+
+button:hover {
+  color: white;
+  opacity: 0.5;
+}
+
+
+
 .dashtitle{
   color: black;
   font-size: 20px;
@@ -8,4 +19,16 @@
 .dashboard-container{
   width:1200px;
   margin: 80px auto;
+}
+
+.nav{
+  .active {
+    color:black !important;
+    background:#3498dc !important;
+    border: #3498dc solid 1px !important;
+  }
+  
+  a:hover {
+    color:white;
+  }
 }
