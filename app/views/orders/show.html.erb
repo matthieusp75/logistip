@@ -16,7 +16,6 @@
         <% @order.order_lines.each do |line| %>
           <%= render partial: 'shared/card_order_line', locals: {line: line, order: @order}  %>
         <% end %>
-        <h5 class='text-end'><%= @order.total_price %>€</h5>
         <%= render partial: 'shared/order_status', locals: {order: @order} %>
       </div>
       <div class='d-flex justify-content-around mt-5'>
