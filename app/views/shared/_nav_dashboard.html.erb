@@ -1,7 +1,7 @@
-<nav class="nav nav-pills nav-fill"  data-controller="active-class">
+<nav class="nav nav-pills nav-fill"  >
   <div data-dash="<%=dashboard_url%>" data-index="<%=orders_url%>" data-active-class-target="url"></div>
     <div class="dash-button">
-      <button type="button" class=" btn btn-dark position-relative" id="dashbutton" data-active-class-target="produits" href="<%= dashboard_path %>">
+      <button type="button" class="btn btn-dark <%= "active" if params["controller"] == "pages" %> position-relative" id="dashbutton" data-active-class-target="produits" href="<%= dashboard_path %>">
         <a class="nav-link-dash" aria-current="page" href="<%= dashboard_path %>" style="text-decoration:none">
           Produits en rupture
             <% if @missing_products.count.zero? %>
@@ -17,7 +17,7 @@
       </button>
     </div>
     <div class="dash-button">
-      <button type="button" class="btn btn-dark position-relative" id="dashbutton" data-active-class-target="fournisseurs" href="<%= orders_path %>">
+      <button type="button" class="btn btn-dark <%= "active" if params["controller"] == "orders" %> position-relative" id="dashbutton" data-active-class-target="fournisseurs" href="<%= orders_path %>">
         <a class="nav-link-dash" href="<%= orders_path %>" style="text-decoration:none">
           Commandes Fournisseurs
             <% if @supplier_orders.count == 0 %>
