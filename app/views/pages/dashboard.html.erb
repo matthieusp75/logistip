@@ -4,7 +4,7 @@
  <%= render 'shared/nav_dashboard' %>
 
  <div class="container">
-  <h2><span class="count" ><%= @missing_products.count %></span> produits à réapprovisioner </h2>
+  <h2><span class="count" ><%= @missing_products.count %></span> produits à réapprovisionner </h2>
     <div class="row">
       <% @products.each do |product| %>
         <% if (product.order_lines.count > 0 && product.order_lines.last.order.planned_delivery_date <= Date.today) || product.order_lines.count.zero? %>
