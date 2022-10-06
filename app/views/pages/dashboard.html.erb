@@ -4,16 +4,14 @@
  <%= render 'shared/nav_dashboard' %>
 
  <div class="container">
-  <h2 class="text-center">Réapprovisionnez vos produits en rupture de stock</h2>
+  <h2><span class="count" ><%= @missing_products.count %></span> produits à réapprovissioner </h2>
     <div class="row">
       <% @products.each do |product| %>
         <% if (product.order_lines.count > 0 && product.order_lines.last.order.planned_delivery_date <= Date.today) || product.order_lines.count.zero? %>
           <div class="col-6">
-            <div class="container">
               <li class="list-group-item">
                 <%= render partial: 'shared/card_product', locals: {product: product}  %>
               </li>
-            </div>
           </div>
         <% end %>
       <% end %>

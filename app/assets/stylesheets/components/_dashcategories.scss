@@ -2,10 +2,7 @@ button{
   border: none;
 }
 
-button:hover {
-  color: white;
-  opacity: 0.5;
-}
+
 
 
 
@@ -22,12 +19,14 @@ button:hover {
 }
 
 .nav{
+
+  button:hover,
   .active {
     color:black !important;
-    background:#3498dc !important;
-    border: #3498dc solid 1px !important;
+    background:$parma !important;
+    border: $parma solid 1px !important;
   }
-  
+
   a:hover {
     color:white;
   }
