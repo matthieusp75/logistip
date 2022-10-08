@@ -1,5 +1,18 @@
 <div class="card-order my-2 position-relative">
   <%= cl_image_tag order.order_lines.first.product.supplier.photo.key, width: 400, crop: :fill %>
+  <% if order.status == 0 %>
+    <div class="orange-ribbon">
+      <div class="txt">
+        À VALIDER
+      </div>
+    </div>
+  <% elsif order.status == 1 %>
+    <div class="green-ribbon">
+      <div class="txt">
+        À RECEPTIONNER
+      </div>
+    </div>
+  <% end %>
     <div class="card-order-infos  flex-grow-1 position-relative">
       <div>
         <%= link_to order_path(order), class: 'text-decoration-none link-page', style: "width:350px;" do  %>
@@ -20,14 +33,14 @@
           <% end %>
         </div>
         <% if order.status == 1 %>
-          <h6 class="mt-5 position-absolute bottom-0 start-50 translate-right-x" style="text-align: end; font-size:20px">Date de reception: <%= order.planned_delivery_date.strftime('%d/%m/%Y') %></h6>
+          <h6 class="mt-5 position-absolute bottom-0 start-50 translate-right-x" style="text-align: end; font-size:22px">Date de reception estimée: <strong><%= order.planned_delivery_date.strftime('%d/%m/%Y') %></strong></h6>
         <% end %>
       </div>
   </div>
       <div class="align-self-baseline me-4">
         <% if order.status == 0%>
             <div style='font-size: 12px; color:black;'>
-              <i class="fa-sharp fa-solid fa-circle" style="color:orange; font-size: 20px"></i><span> En attente de validation</span>
+              <i class="fa-sharp fa-solid fa-circle" style="color:orange; font-size: 20px"></i><span>En attente de validation</span>
             </div>
 
         <div>
@@ -36,7 +49,7 @@
             <% end %>
         </div>
         <% elsif order.status == 1%>
-        <p style="font-size: 12px" class="align-self-end"><i class="fa-sharp fa-solid fa-circle" style="color:Green; font-size: 20px"></i> Validé au fournisseur</p>
+        <p style="font-size: 12px" class="align-self-end"><i class="fa-sharp fa-solid fa-circle" style="color:Green; font-size: 20px"></i>En cours de route</p>
         <% end %>
       </div>
       <% if order.status == 0 %>
