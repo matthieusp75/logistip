@@ -283,7 +283,7 @@ product9 = Product.create(
   ean:"7658904635783",
   title:"The One de Dolce & Gabana",
   description:"L'unique et inégalable",
-  quantity_in_stock:"0",
+  quantity_in_stock:"30",
   buying_price:"4",
   selling_price:"12",
   quantity_per_case:"24",
