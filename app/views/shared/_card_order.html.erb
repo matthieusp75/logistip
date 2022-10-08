@@ -1,5 +1,18 @@
 <div class="card-order my-2 position-relative">
   <%= cl_image_tag order.order_lines.first.product.supplier.photo.key, width: 400, crop: :fill %>
+  <% if order.status == 0 %>
+    <div class="orange-ribbon">
+      <div class="txt">
+        À valider
+      </div>
+    </div>
+  <% elsif order.status == 1 %>
+    <div class="green-ribbon">
+      <div class="txt">
+        À réceptionner
+      </div>
+    </div>
+  <% end %>
     <div class="card-order-infos  flex-grow-1 position-relative">
       <div>
         <%= link_to order_path(order), class: 'text-decoration-none link-page', style: "width:350px;" do  %>
