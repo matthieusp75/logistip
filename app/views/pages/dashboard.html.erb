@@ -1,10 +1,12 @@
 
-<div class='dashboard-container'>
+<div class='dashboard-container d-flex'>
 
- <%= render 'shared/nav_dashboard' %>
+ <div class="border-end" style="width:200px">
+  <%= render 'shared/sidebar' %>
+ </div>
 
- <div class="container">
-  <h2><span class="count" ><%= @missing_products.count %></span> produits à réapprovissioner </h2>
+  <div class="container">
+    <h2><strong class="count" ><%= @missing_products.count %></strong> produits à réapprovissioner </h2>
     <div class="row">
       <% @products.each do |product| %>
         <% if (product.order_lines.count > 0 && product.order_lines.last.order.planned_delivery_date <= Date.today) || product.order_lines.count.zero? %>
@@ -17,11 +19,12 @@
       <% end %>
 
       <% if @missing_products.count == 0 %>
-        <h3 class='text-center'>Bravo ! Aucune rupture à l'horizon !</h3>
-        <div class="text-center mt-5">
+        <h3 >Bravo ! Aucune rupture à l'horizon !</h3>
+        <div>
           <%= link_to "Commandes fournisseur", orders_path, class: 'btn btn-dark'  %>
         </div>
       <% end %>
     </div>
   </div>
+
 </div>

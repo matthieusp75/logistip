@@ -1,3 +1,19 @@
-.link-page {
-  color: black;
+
+.sidebar{
+
+  .link-page {
+    color: black;
+  }
+  
+  a:hover,
+  .active {
+    color:black !important;
+    background:$orange !important;
+    border: $orange solid 1px !important;
+  }
+
+  .text-left {
+    text-align: left !important;
+  }
+
 }
