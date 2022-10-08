@@ -1,0 +1,23 @@
+<div class='sidebar'>
+<div class="mt-2"></div>
+  <div class="position-relative">
+    <%= link_to dashboard_path, class: "btn btn-dark text-left #{'active' if params["controller"] == 'pages'} ", style: 'width:100%'  do %>
+      <i class="fa-solid fa-battery-empty" style="text: ; font-size:20px"></i> Ruptures
+    <% end %>
+      <p  class="badge rounded-pill position-absolute top-50 start-100 translate-middle <%= @missing_products.count.zero? ? 'bg-success' : 'bg-danger' %>"><%= @missing_products.count %></p>
+  </div>
+  <div class="mt-2"></div>
+  <div class="position-relative">
+    <%= link_to orders_path, class: "btn btn-dark text-left #{'active' if params["controller"] == 'orders'}", style: 'width:100%'  do %>
+      <i class="fa-solid fa-dolly" style="font-size:20px"></i> Fournisseurs
+    <% end %>
+        <p  class="badge rounded-pill position-absolute top-50 start-100 translate-middle <%=  @supplier_orders.count.zero? ? 'bg-success' : 'bg-danger' %>"><%=  @supplier_orders.count %></p>
+  </div>
+  <div class="mt-2"></div>
+  <div class="position-relative">
+    <%= link_to "#", class: "btn btn-dark  text-left", style: 'width:100%'  do %>
+      <i class="fa-solid fa-basket-shopping" style="font-size:20px"></i> Clients
+    <% end %>
+      <p  class="badge rounded-pill position-absolute top-50 start-100 translate-middle bg-success">0</p>
+  </div>
+</div>

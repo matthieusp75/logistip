@@ -1,14 +1,21 @@
 <div class='dashboard-container'>
 
- <%= render 'shared/nav_dashboard' %>
+<div class="d-flex">
+
+<div class="border-end" style="width:200px">
+ <%= render 'shared/sidebar' %>
+</div>
 
 
-  <div class=" flex-grow-1" style='height: 650px; margin-bottom:120px; padding-bottom:24px'>
-    <h2 class="text-center">Vos commandes fournisseurs en cours</h2>
+
+  <div class="flex-grow-1 mx-5" style='height: 650px margin-bottom:120px;'>
+    <h2> <strong class="count" ><%= @supplier_orders.count %></strong> commandes fournisseurs en cours</h2>
+
     <% @orders.each do |order| %>
       <% if order.client.nil? %>
         <%= render partial:"shared/card_order", locals: {order: order} %>
       <% end %>
     <% end %>
   </div>
+</div>
 </div>
