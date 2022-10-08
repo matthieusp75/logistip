@@ -33,7 +33,7 @@
           <% end %>
         </div>
         <% if order.status == 1 %>
-          <h6 class="mt-5 position-absolute bottom-0 start-50 translate-right-x" style="text-align: end; font-size:20px">Date de reception: <%= order.planned_delivery_date.strftime('%d/%m/%Y') %></h6>
+          <h6 class="mt-5 position-absolute bottom-0 start-50 translate-right-x" style="text-align: end; font-size:22px">Date de reception estimée: <strong><%= order.planned_delivery_date.strftime('%d/%m/%Y') %></strong></h6>
         <% end %>
       </div>
   </div>
