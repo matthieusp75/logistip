@@ -28,9 +28,15 @@
             <h1 class="text-center" style="font-size : 36px">Vous avez commandé l'intégralité de l'assortiment de ce fournisseur</h1>
           <% else %>
             <h1 class="text-center">Ce fournisseur propose également:</h1>
-            <%  @other_products.each do |product| %>
-              <%= render partial: 'shared/card_product', locals: {product: product}  %>
-            <% end %>
+            <div class="row">
+              <%  @other_products.each do |product| %>
+                <div class="col-6">
+                    <li class="list-group-item">
+                      <%= render partial: 'shared/card_product', locals: {product: product}  %>
+                    </li>
+                </div>
+              <% end %>
+            </div>
           <% end %>
         <% end %>
         </div>

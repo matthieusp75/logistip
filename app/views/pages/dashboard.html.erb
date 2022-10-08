@@ -5,8 +5,10 @@
   <%= render 'shared/sidebar' %>
  </div>
 
+
   <div class="container">
     <h2><strong class="count" ><%= @missing_products.count %></strong> produits à réapprovissioner </h2>
+
     <div class="row">
       <% @products.each do |product| %>
         <% if (product.order_lines.count > 0 && product.order_lines.last.order.planned_delivery_date <= Date.today) || product.order_lines.count.zero? %>
