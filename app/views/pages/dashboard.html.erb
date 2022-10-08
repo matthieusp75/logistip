@@ -6,9 +6,9 @@
  </div>
 
 
-  <div class="container">
-    <h2><strong class="count" ><%= @missing_products.count %></strong> produits à réapprovissioner </h2>
-
+  <div class="container" style="margin-left 20px;">
+    <h2><strong class="count" ><%= @missing_products.count %></strong> produits à réapprovisionner </h2>
+    <br>
     <div class="row">
       <% @products.each do |product| %>
         <% if (product.order_lines.count > 0 && product.order_lines.last.order.planned_delivery_date <= Date.today) || product.order_lines.count.zero? %>
@@ -21,9 +21,11 @@
       <% end %>
 
       <% if @missing_products.count == 0 %>
-        <h3 >Bravo ! Aucune rupture à l'horizon !</h3>
+
+        <h3 > Bravo ! Aucune rupture à l'horizon !</h3>
         <div>
-          <%= link_to "Commandes fournisseur", orders_path, class: 'btn btn-dark'  %>
+        <br>
+          <%= link_to "Je valide mes commandes fournisseurs", orders_path, class: 'btn btn-dark demo-btn-orders'%>
         </div>
       <% end %>
     </div>

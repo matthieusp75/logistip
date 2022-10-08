@@ -1,24 +1,25 @@
 <div class="card-product my-2 align-items-center">
   <%= cl_image_tag product.photo.key, height: 300, width: 400, crop: :fill %>
+  <% if product.quantity_in_stock == 0 %>
   <div class="ribbon">
     <div class="txt">
-    En rupture
+    EN RUPTURE
     </div>
   </div>
+  <% end %>
   <div class="flex-grow-1">
     <div class="card-product-infos text-center">
       <div style="font-size: 20px">
         <%= product.title %>
-        <p style="font-size: 12px"><%= product.supplier.name %></p>
+        <br>
+        <p><%= product.description %></p>
+        <p><i class="fa-solid fa-truck-field" style="font-size: 14px"></i><%= product.supplier.name %></p>
       </div>
       <div style="font-size: 12px" text-center>
-      <p><%= product.description %></p>
-      <p>Quantité en stock: <%= product.quantity_in_stock %></p>
-      <p>Quantité par colis: <%= product.quantity_per_case %></p>
-      <p>Quantité minimum de commande: <%= product.minimum_order_quantity %> colis</p>
-      <p><%= product.buying_price %>€/UVC - Soit <%= product.buying_price * product.quantity_per_case %>€ le colis</p>
+      <p><i class="fa-solid fa-boxes-stacked" style="font-size: 12px"></i><%= product.quantity_in_stock %> en stock<i class="fa-solid fa-box-open" style="font-size: 12px"></i>Colis de <%= product.quantity_per_case %><i class="fa-solid fa-truck-ramp-box" style="font-size: 12px"></i><%= product.minimum_order_quantity %> colis minimum</p>
+      <p><i class="fa-solid fa-euro-sign" style="font-size: 12px"></i>Prix : <%= product.buying_price %>€/UVC - Soit <%= product.buying_price * product.quantity_per_case %>€ le colis</p>
       </div>
-    </div>
+    </div class="center">
     <%# <div class='me-1'> %>
     <%= simple_form_for @order_line, html: {class: 'd-flex justify-content-center me-5'} do |f| %>
       <%= f.hidden_field :product_id, value: product.id %>
@@ -27,7 +28,7 @@
                                                                           placeholder: "Minimum #{product.minimum_order_quantity} colis",
                                                                           min: product.minimum_order_quantity } %>
 
-      <%= f.submit 'Précommander', class: 'btn btn-dark mx-2 p-1 align-self-center', style:'width:156px; height:32px' %>
+      <%= f.submit 'Précommander', class: 'btn btn-dark mx-2 p-1', style:'width:156px; height:32px' %>
     <% end %>
     <%# </div> %>
   </div>
