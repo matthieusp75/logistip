@@ -7,6 +7,10 @@
   align-items: center;
 }
 
+.fixform {
+  margin-left: 10px;
+}
+
 .card-product img {
   height: 100%;
   width: 215px;
@@ -25,7 +29,7 @@
   line-height: 1.4;
   opacity: .7;
   margin-bottom: 0;
-  margin-top: 8px;
+  margin-top: 0px;
 }
 
 .card-product .card-product-infos {
@@ -51,7 +55,7 @@ input::-webkit-inner-spin-button {
     //    -o-transform: rotate(-45deg);
           transform: rotate(+225deg);
     border: 25px solid transparent;
-    border-top: 25px solid $max-yellow;
+    border-top: 25px solid $orange;
     position: absolute;
     top:28px;
     right: -47px;

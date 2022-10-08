@@ -12,8 +12,8 @@ require "open-uri"
 puts "create users"
 
 User.create!(
-  email:"jeanfrancois@logistip.com",
-  first_name:"Jean Francois",
+  email:"john@logistip.com",
+  first_name:"John",
   last_name:"Barbato",
   telephone:"0123456789",
   password:"bonjour",
@@ -253,7 +253,7 @@ product7 = Product.create(
   ean:"7658904635781",
   title:"Prada Milano",
   description:"L'intensité de l'homme à l'état pur",
-  quantity_in_stock:"1",
+  quantity_in_stock:"20",
   buying_price:"12",
   selling_price:"25",
   quantity_per_case:"60",
@@ -283,7 +283,7 @@ product9 = Product.create(
   ean:"7658904635783",
   title:"The One de Dolce & Gabana",
   description:"L'unique et inégalable",
-  quantity_in_stock:"0",
+  quantity_in_stock:"30",
   buying_price:"4",
   selling_price:"12",
   quantity_per_case:"24",
@@ -358,7 +358,7 @@ product14 = Product.create(
   ean:"765890463#788",
   title:"Comme une évidence par Yves Rocher",
   description:"Simple et naturel",
-  quantity_in_stock:"0",
+  quantity_in_stock:"50",
   buying_price:"10",
   selling_price:"14",
   quantity_per_case:"48",
@@ -435,14 +435,14 @@ product18.save!
 puts "create orders"
 
 # 7 orders
-Order.create(
+order1 = Order.create(
   planned_delivery_date:Date.new(2022, 11, 25),
   total_price:"10",
   status:"0",
   user_id:"1",
 )
 
-Order.create(
+order2 = Order.create(
   planned_delivery_date:Date.new(2022, 11, 14),
   total_price:"20",
   status:"0",
@@ -492,17 +492,17 @@ puts "create orderlines"
 
 # 14 orderlines
 OrderLine.create(
-  quantity:"1",
+  quantity:"20",
   line_total_price:"10",
-  order_id:"1",
-  product_id:"16",
+  order_id:order1.id,
+  product_id: product16.id,
 )
 
 OrderLine.create(
-  quantity:"2",
+  quantity:"50",
   line_total_price:"20",
-  order_id:"2",
-  product_id:"17",
+  order_id:order2.id,
+  product_id:product17.id,
 )
 
 OrderLine.create(
