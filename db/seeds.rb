@@ -163,7 +163,7 @@ product1 = Product.create(
   ean:"7658904635785",
   title:"N°5 de Chanel",
   description:"L'eau de parfum la plus connue du monde",
-  quantity_in_stock:"0",
+  quantity_in_stock:"60",
   buying_price:"4",
   selling_price:"9",
   quantity_per_case:"12",
@@ -223,7 +223,7 @@ product5 = Product.create(
   ean:"7658904635789",
   title:"Miu miu",
   description:"La femme pétillante et addictive",
-  quantity_in_stock:"0",
+  quantity_in_stock:"100",
   buying_price:"9",
   selling_price:"22",
   quantity_per_case:"144",
@@ -373,7 +373,7 @@ product15 = Product.create(
   ean:"765890463#788",
   title:"Boss, d'Hugo Boss",
   description:"L'hommes, confiant et sauvage",
-  quantity_in_stock:"0",
+  quantity_in_stock:"100",
   buying_price:"10",
   selling_price:"14",
   quantity_per_case:"10",
@@ -392,7 +392,7 @@ product16 = Product.create(
   title:"Comme des garçons",
   description:"Simplicité et légèreté",
   quantity_in_stock:"0",
-  buying_price:"10",
+  buying_price:"150",
   selling_price:"14",
   quantity_per_case:"16",
   minimum_order_quantity:"10",
@@ -407,7 +407,7 @@ product17 = Product.create(
   title:"Oyedo",
   description:"Le mystère fait votre charme",
   quantity_in_stock:"0",
-  buying_price:"10",
+  buying_price:"20",
   selling_price:"14",
   quantity_per_case:"15",
   minimum_order_quantity:"10",
@@ -421,8 +421,8 @@ product18 = Product.create(
   ean:"765890463#788",
   title:"Nina Ricci",
   description:"La fragrance intemporelle",
-  quantity_in_stock:"0",
-  buying_price:"10",
+  quantity_in_stock:"100",
+  buying_price:"40",
   selling_price:"14",
   quantity_per_case:"100",
   minimum_order_quantity:"1",
@@ -437,24 +437,24 @@ puts "create orders"
 # 7 orders
 order1 = Order.create(
   planned_delivery_date:Date.new(2022, 11, 25),
-  total_price:"10",
+  total_price:"3000",
   status:"0",
   user_id:"1",
 )
 
-order2 = Order.create(
-  planned_delivery_date:Date.new(2022, 11, 14),
-  total_price:"20",
-  status:"0",
-  user_id:"1",
-)
+# order2 = Order.create(
+#   planned_delivery_date:Date.new(2022, 11, 14),
+#   total_price:"1000",
+#   status:"0",
+#   user_id:"1",
+# )
 
-Order.create(
-  planned_delivery_date:Date.new(2022, 10, 24),
-  total_price:"30",
-  status:"0",
-  user_id:"2",
-)
+# Order.create(
+#   planned_delivery_date:Date.new(2022, 10, 24),
+#   total_price:"120",
+#   status:"0",
+#   user_id:"2",
+# )
 
 # Order.create(
 #   planned_delivery_date:Date.new(2022, 10, 2),
@@ -493,24 +493,24 @@ puts "create orderlines"
 # 14 orderlines
 OrderLine.create(
   quantity:"20",
-  line_total_price:"10",
+  line_total_price:"3000",
   order_id:order1.id,
   product_id: product16.id,
 )
 
-OrderLine.create(
-  quantity:"50",
-  line_total_price:"20",
-  order_id:order2.id,
-  product_id:product17.id,
-)
+# OrderLine.create(
+#   quantity:"50",
+#   line_total_price:"1000",
+#   order_id:order2.id,
+#   product_id:product17.id,
+# )
 
-OrderLine.create(
-  quantity:"3",
-  line_total_price:"30",
-  order_id:"3",
-  product_id:"18",
-)
+# OrderLine.create(
+#   quantity:"3",
+#   line_total_price:"120",
+#   order_id:"3",
+#   product_id:"18",
+# )
 
 # OrderLine.create(
 #   quantity:"2",
